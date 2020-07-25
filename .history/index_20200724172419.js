@@ -1,9 +1,7 @@
-//1. Convert String to Binary
-//2. Encoder
-//3. Add Primers
-//4. Error Simulator
-//5. Decoder
-//6. Results
+
+//Primer
+//Error Simulator
+//Error-Correcting Codes
 
 
 /**

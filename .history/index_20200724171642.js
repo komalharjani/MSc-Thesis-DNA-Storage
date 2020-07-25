@@ -1,9 +1,7 @@
-//1. Convert String to Binary
-//2. Encoder
-//3. Add Primers
-//4. Error Simulator
-//5. Decoder
-//6. Results
+
+//Primer
+//Error Simulator
+//Error-Correcting Codes
 
 
 /**
@@ -54,22 +52,16 @@ function mapDNA(binOutput) {
 mapDNA(binOutput);
 console.log(dnaArray.join(""));
 var str = dnaArray.join("");
-console.log(str.length);
 
-//Error Simulator (Removing Information)
-for(var i = 0; i < str.length; i++) {
-    str = removeRandomLetter(str);
-}
+//Error Simulator
+// for(var i = 0; i < 3; i++) {
+//     str = removeRandomLetter(str);
+// }
 
-var out;
-function removeRandomLetter(str) {
-    var pos = 0.01*str.length;
-    out = str.substring(0, Math.random)+str.substring(pos+1);
-    return out;
-}
-console.log(out);
-console.log(out.length);
-
+// function removeRandomLetter(str) {
+//     var pos = Math.floor(Math.random()*str.length);
+//     return str.substring(0, pos)+str.substring(pos+1);
+// }
 
 /**
  * Function to Convert Binary to String

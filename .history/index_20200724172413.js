@@ -1,9 +1,7 @@
-//1. Convert String to Binary
-//2. Encoder
-//3. Add Primers
-//4. Error Simulator
-//5. Decoder
-//6. Results
+
+//Primer
+//Error Simulator
+//Error-Correcting Codes
 
 
 /**
@@ -56,7 +54,7 @@ console.log(dnaArray.join(""));
 var str = dnaArray.join("");
 console.log(str.length);
 
-//Error Simulator (Removing Information)
+//Error Simulator
 for(var i = 0; i < str.length; i++) {
     str = removeRandomLetter(str);
 }

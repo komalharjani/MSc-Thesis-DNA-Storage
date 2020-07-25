@@ -1,9 +1,7 @@
-//1. Convert String to Binary
-//2. Encoder
-//3. Add Primers
-//4. Error Simulator
-//5. Decoder
-//6. Results
+
+//Primer
+//Error Simulator
+//Error-Correcting Codes
 
 
 /**
@@ -53,22 +51,6 @@ function mapDNA(binOutput) {
 }
 mapDNA(binOutput);
 console.log(dnaArray.join(""));
-var str = dnaArray.join("");
-console.log(str.length);
-
-//Error Simulator (Removing Information)
-for(var i = 0; i < str.length; i++) {
-    str = removeRandomLetter(str);
-}
-
-var out;
-function removeRandomLetter(str) {
-    var pos = 0.01*str.length;
-    out = str.substring(0, Math.random)+str.substring(pos+1);
-    return out;
-}
-console.log(out);
-console.log(out.length);
 
 
 /**
@@ -82,5 +64,5 @@ function binToText(str) {
     });
     return binString;
 }
-let input = binToText(binOutput);
+let input = binToText("01000001 01101110 00100000 01101111 01101100 01100100 00100000 01110011 01101001 01101100 01100101 01101110 01110100 00100000 01110000 01101111 01101110 01100100 00101110 00101110 00101110 01000001 00100000 01100110 01110010 01101111 01100111 00100000 01101010 01110101 01101101 01110000 01110011 00100000 01101001 01101110 01110100 01101111 00100000 01110100 01101000 01100101 00100000 01110000 01101111 01101110 01100100 00101100 00100000 01110011 01110000 01101100 01100001 01110011 01101000 00100001 00100000 01010011 01101001 01101100 01100101 01101110 01100011 01100101 00100000 01100001 01100111 01100001 01101001 01101110 00101110");
 console.log(input);
