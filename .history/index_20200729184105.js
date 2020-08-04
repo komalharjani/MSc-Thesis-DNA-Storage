@@ -4,7 +4,7 @@ let noErrors = 5;
 let binOutput;
 
 /**
- * Called when convert is started
+ * 
  */
 function onSubmit() {
     //let text = document.getElementById("textToConvert").value;
@@ -14,10 +14,6 @@ function onSubmit() {
     binaryToDNA(binOutput);
 }
 
-function updateTextInput(val) {
-    document.getElementById('textInput').value=val; 
-  }
-  
 /**
  * Converting User Inputted Text into Binary using ASCII Table
  * @param {*} text
@@ -40,7 +36,6 @@ function textToBinary(text) {
 function binaryToDNA(binOutput) {
     console.log(binOutput.length);
     let dnaArray = [];
-    //redundancy (for arrays in an array)
     var twoBitsArray = []; //Array to hold binary elements, each element containing 2 bits
     var i = 0;
     var n = binOutput.length;
@@ -68,11 +63,7 @@ function binaryToDNA(binOutput) {
     let stringed = dnaArray.join("");
     let primer = "AAAAA"; //Add Primer of 5 A's
     let dnaString = primer + stringed + primer;
-    let clone = dnaString.slice();
-    errorSimulator(clone);
     errorSimulator(dnaString);
-    console.log(clone);
-    console.log(dnaString);
 }
 
 /**
@@ -89,7 +80,7 @@ function errorSimulator(dnaString) { //does this have to deal with a string?
         let itemIndex = dnaArray.indexOf(item);
         console.log(itemIndex);
         console.log(dnaArray);
-        //dnaArray.splice(itemIndex, 1); //remove element from string here
+        dnaArray.splice(itemIndex, 1); //remove element from string here
     }
     console.log(dnaArray);
     errorCorrection(dnaArray);
@@ -162,7 +153,7 @@ function binaryToText(str) {
 }
 
 /**
- * Generate Complement of DNA String to be stored
+ * Get Complement of DNA String to be stored
  */
 function getComplement() {
     let complement = [];

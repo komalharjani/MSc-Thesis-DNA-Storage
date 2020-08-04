@@ -14,10 +14,6 @@ function onSubmit() {
     binaryToDNA(binOutput);
 }
 
-function updateTextInput(val) {
-    document.getElementById('textInput').value=val; 
-  }
-  
 /**
  * Converting User Inputted Text into Binary using ASCII Table
  * @param {*} text

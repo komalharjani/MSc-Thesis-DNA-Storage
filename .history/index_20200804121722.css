@@ -54,20 +54,13 @@ body {
 }
 
 /* Full-width input fields */
-.input {
+input[type=text] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
   background: #e6e6e6;
-}
-
-.range {
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  text-align: right;
 }
 
 li {

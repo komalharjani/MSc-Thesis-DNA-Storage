@@ -63,13 +63,6 @@ body {
   background: #e6e6e6;
 }
 
-.range {
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  text-align: right;
-}
-
 li {
   width: 100%;
   padding: 15px;

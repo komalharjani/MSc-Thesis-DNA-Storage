@@ -14,10 +14,6 @@ function onSubmit() {
     binaryToDNA(binOutput);
 }
 
-function updateTextInput(val) {
-    document.getElementById('textInput').value=val; 
-  }
-  
 /**
  * Converting User Inputted Text into Binary using ASCII Table
  * @param {*} text
@@ -89,7 +85,7 @@ function errorSimulator(dnaString) { //does this have to deal with a string?
         let itemIndex = dnaArray.indexOf(item);
         console.log(itemIndex);
         console.log(dnaArray);
-        //dnaArray.splice(itemIndex, 1); //remove element from string here
+        dnaArray.splice(itemIndex, 1); //remove element from string here
     }
     console.log(dnaArray);
     errorCorrection(dnaArray);
