@@ -63,70 +63,21 @@ function binaryToDNA(binOutput) {
     addPayload(dnaArray);
 }
 
-/**
- * Control 1: Remove Homopolymers and 'GC' repeats
- */
-function removeHomopolymers() {
-
-}
-
-/**
- * Add a Payload
- * @param {*} dnaArray 
- */
 function addPayload(dnaArray) {
     let stringed = dnaArray.join("");
     let primer = "AAAAA"; //Add Primer of 5 A's
     let dnaString = primer + stringed + primer;
-    let textLength, dnaLength, binaryLength;
-    redundantArr(dnaString);
-    getComplement(dnaArray);
+    //store length also
+    redundantArr(dnaString)
     //errorSimulator(dnaString); --> If redundant not called
 }
 
-/**
- * Add Redundancies (10-fold?)
- * Make Dynamic
- * @param {*} dnaString 
- */
-function redundantArr(dnaString) {
+function redundantArr() {
     let clone = dnaString.slice();
-
-    let cloneError = errorSimulator(clone);
-    let dnaStringError = errorSimulator(dnaString);
-   // let comp = getComplement(dnaArray);
-   // let errorComp = errorSimulator(comp);
-    errorCorrection(cloneError, dnaStringError);
-
+    errorSimulator(clone);
+    errorSimulator(dnaString);
 }
 
-/**
- * Generate Complement of DNA String to be stored
- */
-function getComplement() {
-
-    let complement = [];
-    for (let i = 0; i < dnaArray.length; i++) {
-        if (dnaArray[i] == "A") {
-            complement.push("T");
-        }
-        if (dnaArray[i] == "T") {
-            complement.push("A");
-        }
-        if (dnaArray[i] == "C") {
-            complement.push("G");
-        }
-        if (dnaArray[i] == "G") {
-            complement.push("C");
-        }
-    }
-    let comp = complement.join("");
-    return comp;
-}
-
-// function fixedLengthString() {
-
-// }
 
 /**
  * Error Simulator to delete random information
@@ -134,68 +85,30 @@ function getComplement() {
  * @param {*} dnaString 
  */
 function errorSimulator(dnaString) { //does this have to deal with a string?
-    let errorRate = Math.round(dnaString.length * noErrors / 1000); //error rate user input
+    let errorRate = Math.round(dnaString.length * noErrors / 100); //error rate user input
     dnaArray = dnaString.split("");
-    console.log(dnaArray);
-    for (let i = 0; i < errorRate; i++) { //for error rate
-        let min = 0; //change if ends of string want to be cut
-        let randomIndex = Math.floor(Math.random() * dnaArray.length - min +1) + min;
-        console.log(randomIndex);
-        let item = dnaArray[randomIndex];
+    for (let i = 0; i < errorRate + 1; i++) { //for error rate
+        var item = dnaArray[Math.floor(Math.random() * dnaArray.length)]; //generate random index to be deleted
         console.log(item);
-        dnaArray.splice(randomIndex, 1); //remove element from string here
+        let itemIndex = dnaArray.indexOf(item);
+        console.log(itemIndex);
+        console.log(dnaArray);
+        dnaArray.splice(itemIndex, 1); //remove element from string here
     }
-    return dnaArray;
+    console.log(dnaArray);
+    errorCorrection(dnaArray);
 }
 
 /**
  * 
  * @param {*} dnaString 
  */
-function errorCorrection(cloneError, dnaStringError) {
-   
-    let a = [];
-    let diff = [];
-
-    //Put all elements into a
-    for (let i = 0; i < dnaStringError.length; i++) {
-        a[dnaStringError[i]] = true;
-    }
-
-    for (let i = 0; i < cloneError.length; i++) {
-        if (a[cloneError[i]]) {
-            delete a[cloneError[i]];
-        }
-        else {
-            a[dnaStringError[i]] = true;
-        }
-    }
-
-    for (let k in a) {
-        diff.push(k);
-    }
-
-    console.log(diff);
-
+function errorCorrection(dnaString) {
+    //fill in gaps  
+    //BUNCH OF 
     //parity checks - cut long string with primers and check whether that position has 5 A's --> and calculate length - before removing primers ensure that it has recovered dat
-    //check if something is not supposed to be in place
-    dnaToBinary(dnaStringError);
-    dnaToBinary(cloneError);
-    //dnaToBinary(errorComp);
+    dnaToBinary(dnaString);
 }
-
-let retrieve = [];
-function compareArray() {
-    for (let i = 0; i < dnaArray.length; i++) {
-        for (let j = -1; j < dnaArray.length; j--) {
-            if (dnaArray[i] == complement[j]) {
-                retrieve.push(dnaArray[i]);
-            }
-        }
-    }
-    console.log(retrieve);
-}
-
 
 /**
  * Convert error corrected string back to binary  
@@ -251,5 +164,41 @@ function binaryToText(str) {
     });
     console.log(binString);
     return binString;
+}
+
+/**
+ * Generate Complement of DNA String to be stored
+ */
+let complement = [];
+function getComplement() {
+
+    for(let i=0; i < dnaArray.length; i++) {
+        if(dnaArray[i] == "A") {
+            complement.push("T");
+        }
+        if(dnaArray[i] == "T") {
+            complement.push("A");
+        }
+        if(dnaArray[i] == "C") {
+            complement.push("G");
+        }
+        if(dnaArray[i] == "G") {
+            complement.push("C");
+        }
+    }
+    console.log(complement);
+    compareArray();
+}
+
+let retrieve =[];
+function compareArray(){
+    for(let i=0; i<dnaArray.length;i++){
+        for(let j=-1; j<dnaArray.length;j--){
+            if(dnaArray[i]==complement[j]){
+                retrieve.push(dnaArray[i]);
+            }
+        }
+    }
+    console.log(retrieve);
 }
 

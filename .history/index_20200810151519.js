@@ -136,14 +136,15 @@ function getComplement() {
 function errorSimulator(dnaString) { //does this have to deal with a string?
     let errorRate = Math.round(dnaString.length * noErrors / 1000); //error rate user input
     dnaArray = dnaString.split("");
-    console.log(dnaArray);
     for (let i = 0; i < errorRate; i++) { //for error rate
         let min = 0; //change if ends of string want to be cut
         let randomIndex = Math.floor(Math.random() * dnaArray.length - min +1) + min;
         console.log(randomIndex);
         let item = dnaArray[randomIndex];
         console.log(item);
-        dnaArray.splice(randomIndex, 1); //remove element from string here
+        let itemIndex = dnaArray.indexOf(item);
+        console.log(itemIndex);
+        dnaArray.splice(itemIndex, 1); //remove element from string here
     }
     return dnaArray;
 }
@@ -176,6 +177,16 @@ function errorCorrection(cloneError, dnaStringError) {
     }
 
     console.log(diff);
+
+    for(var i = 0; i < dnaStringError.length; i++){
+        for(var j = 0; j < cloneError.length; j ++){
+          var loc = dnaStringError.indexOf(cloneError[j]);
+          if(loc > -1){
+            dnaStringError.splice(loc, 1);
+          }
+        }
+      }
+      console.log(cloneError);
 
     //parity checks - cut long string with primers and check whether that position has 5 A's --> and calculate length - before removing primers ensure that it has recovered dat
     //check if something is not supposed to be in place

@@ -91,13 +91,11 @@ function addPayload(dnaArray) {
  */
 function redundantArr(dnaString) {
     let clone = dnaString.slice();
-
     let cloneError = errorSimulator(clone);
     let dnaStringError = errorSimulator(dnaString);
-   // let comp = getComplement(dnaArray);
-   // let errorComp = errorSimulator(comp);
-    errorCorrection(cloneError, dnaStringError);
-
+    errorCorrection(cloneError,dnaStringError);
+    let comp = getComplement(dnaArray);
+    let errorComp = errorSimulator(comp);
 }
 
 /**
@@ -106,17 +104,17 @@ function redundantArr(dnaString) {
 function getComplement() {
 
     let complement = [];
-    for (let i = 0; i < dnaArray.length; i++) {
-        if (dnaArray[i] == "A") {
+    for(let i=0; i < dnaArray.length; i++) {
+        if(dnaArray[i] == "A") {
             complement.push("T");
         }
-        if (dnaArray[i] == "T") {
+        if(dnaArray[i] == "T") {
             complement.push("A");
         }
-        if (dnaArray[i] == "C") {
+        if(dnaArray[i] == "C") {
             complement.push("G");
         }
-        if (dnaArray[i] == "G") {
+        if(dnaArray[i] == "G") {
             complement.push("C");
         }
     }
@@ -136,14 +134,14 @@ function getComplement() {
 function errorSimulator(dnaString) { //does this have to deal with a string?
     let errorRate = Math.round(dnaString.length * noErrors / 1000); //error rate user input
     dnaArray = dnaString.split("");
-    console.log(dnaArray);
-    for (let i = 0; i < errorRate; i++) { //for error rate
-        let min = 0; //change if ends of string want to be cut
-        let randomIndex = Math.floor(Math.random() * dnaArray.length - min +1) + min;
-        console.log(randomIndex);
-        let item = dnaArray[randomIndex];
+    for (let i = 0; i < errorRate +1; i++) { //for error rate
+        var item = dnaArray[Math.floor(Math.random() * dnaArray.length)]; //generate random index to be deleted
         console.log(item);
-        dnaArray.splice(randomIndex, 1); //remove element from string here
+        let itemIndex = dnaArray.indexOf(item);
+        console.log(itemIndex);
+        console.log("1");
+        console.log(dnaArray);
+        dnaArray.splice(itemIndex, 1); //remove element from string here
     }
     return dnaArray;
 }
@@ -152,43 +150,29 @@ function errorSimulator(dnaString) { //does this have to deal with a string?
  * 
  * @param {*} dnaString 
  */
-function errorCorrection(cloneError, dnaStringError) {
-   
-    let a = [];
-    let diff = [];
+function errorCorrection(cloneError,dnaStringError) {
+    let retrievedData = [];
+    // for(let i=0; i < comp.length; i++) {
+    //     for(let j=0; j < dnaString.length;j++) {
+    //        if(comp[i] == dnaString[j]) {
+    //            retrievedData.push(comp[i]);
 
-    //Put all elements into a
-    for (let i = 0; i < dnaStringError.length; i++) {
-        a[dnaStringError[i]] = true;
-    }
-
-    for (let i = 0; i < cloneError.length; i++) {
-        if (a[cloneError[i]]) {
-            delete a[cloneError[i]];
-        }
-        else {
-            a[dnaStringError[i]] = true;
-        }
-    }
-
-    for (let k in a) {
-        diff.push(k);
-    }
-
-    console.log(diff);
-
+    //        }
+    //     }
+    // }
+    //fill in gaps  
+    //BUNCH OF 
     //parity checks - cut long string with primers and check whether that position has 5 A's --> and calculate length - before removing primers ensure that it has recovered dat
     //check if something is not supposed to be in place
     dnaToBinary(dnaStringError);
     dnaToBinary(cloneError);
-    //dnaToBinary(errorComp);
 }
 
-let retrieve = [];
-function compareArray() {
-    for (let i = 0; i < dnaArray.length; i++) {
-        for (let j = -1; j < dnaArray.length; j--) {
-            if (dnaArray[i] == complement[j]) {
+let retrieve =[];
+function compareArray(){
+    for(let i=0; i<dnaArray.length;i++){
+        for(let j=-1; j<dnaArray.length;j--){
+            if(dnaArray[i]==complement[j]){
                 retrieve.push(dnaArray[i]);
             }
         }

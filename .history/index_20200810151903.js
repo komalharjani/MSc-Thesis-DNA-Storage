@@ -136,7 +136,7 @@ function getComplement() {
 function errorSimulator(dnaString) { //does this have to deal with a string?
     let errorRate = Math.round(dnaString.length * noErrors / 1000); //error rate user input
     dnaArray = dnaString.split("");
-    console.log(dnaArray);
+    console.log(dnaString);
     for (let i = 0; i < errorRate; i++) { //for error rate
         let min = 0; //change if ends of string want to be cut
         let randomIndex = Math.floor(Math.random() * dnaArray.length - min +1) + min;

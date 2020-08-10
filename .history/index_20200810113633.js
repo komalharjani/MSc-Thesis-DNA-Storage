@@ -94,9 +94,9 @@ function redundantArr(dnaString) {
 
     let cloneError = errorSimulator(clone);
     let dnaStringError = errorSimulator(dnaString);
-   // let comp = getComplement(dnaArray);
-   // let errorComp = errorSimulator(comp);
-    errorCorrection(cloneError, dnaStringError);
+    let comp = getComplement(dnaArray);
+    let errorComp = errorSimulator(comp);
+    errorCorrection(cloneError, dnaStringError, errorComp);
 
 }
 
@@ -136,14 +136,12 @@ function getComplement() {
 function errorSimulator(dnaString) { //does this have to deal with a string?
     let errorRate = Math.round(dnaString.length * noErrors / 1000); //error rate user input
     dnaArray = dnaString.split("");
-    console.log(dnaArray);
-    for (let i = 0; i < errorRate; i++) { //for error rate
-        let min = 0; //change if ends of string want to be cut
-        let randomIndex = Math.floor(Math.random() * dnaArray.length - min +1) + min;
-        console.log(randomIndex);
-        let item = dnaArray[randomIndex];
+    for (let i = 0; i < errorRate + 1; i++) { //for error rate
+        var item = dnaArray[Math.floor(Math.random() * dnaArray.length)]; //generate random index to be deleted
         console.log(item);
-        dnaArray.splice(randomIndex, 1); //remove element from string here
+        let itemIndex = dnaArray.indexOf(item);
+        console.log(itemIndex);
+        dnaArray.splice(itemIndex, 1); //remove element from string here
     }
     return dnaArray;
 }
@@ -153,29 +151,87 @@ function errorSimulator(dnaString) { //does this have to deal with a string?
  * @param {*} dnaString 
  */
 function errorCorrection(cloneError, dnaStringError) {
-   
+    let retrievedData = [];
+
+    //1. Check for Primers - if all there and remove
+    //2. 
+    //var difference = cloneError.filter(x => errorComp.indexOf(x) === -1);
+    // for(let i=0; i < cloneError.length; i++) {
+    //     for(let j=0; j < errorComp.length;j++) {
+    //        if(errorComp[i] == dnaStringError[j]) {
+    //            retrievedData.push(errorComp[i]);
+    //            break;
+    //        }
+    //     }
+    // }
+
     let a = [];
     let diff = [];
 
     //Put all elements into a
-    for (let i = 0; i < dnaStringError.length; i++) {
-        a[dnaStringError[i]] = true;
+    for (let i = 0; i < cloneError.length; i++) {
+        a[cloneError[i]] = true;
     }
 
-    for (let i = 0; i < cloneError.length; i++) {
-        if (a[cloneError[i]]) {
-            delete a[cloneError[i]];
+    //
+    for (let i = 0; i < dnaStringError.length; i++) {
+        if (a[dnaStringError[i]]) {
+            delete a[dnaStringError[i]];
         }
         else {
             a[dnaStringError[i]] = true;
         }
     }
 
+    console.log(a);
     for (let k in a) {
         diff.push(k);
     }
-
     console.log(diff);
+
+    var result = [];
+    for (var i = 0; i < cloneError.length; i++) {
+        if (dnaStringError.indexOf(cloneError[i]) === -1) {
+            result.push(cloneError[i]);
+        }
+    }
+    for (i = 0; i < dnaStringError.length; i++) {
+        if (cloneError.indexOf(dnaStringError[i]) === -1) {
+            result.push(dnaStringError[i]);
+        }
+    }
+    console.log(result);
+
+    let temp = [];
+    let missing = [];
+
+    for(let i=0; i < dnaStringError.length; i++) {
+        for(let j=0; j < cloneError.length; j++) {
+            if(dnaStringError[i] == cloneError[j]) {
+                temp.push(dnaStringError[i]);
+                break;
+            }
+            else {
+                missing.push({
+                    arr1: dnaStringError[i],
+                    arr2: cloneError[j]
+                })
+            }
+        }
+    }
+
+    console.log(temp);
+    console.log(missing);
+
+    // let diffe = dnaStringError.filter(x => !cloneError.includes(x));
+    // console.log(diffe);
+
+    // let difference = arrA
+    //              .filter(x => !arrB.includes(x))
+    //              .concat(arrB.filter(x => !arrA.includes(x)));
+
+    // console.log(difference);
+
 
     //parity checks - cut long string with primers and check whether that position has 5 A's --> and calculate length - before removing primers ensure that it has recovered dat
     //check if something is not supposed to be in place
