@@ -10,14 +10,13 @@ function onSubmit() {
     //let text = document.getElementById("textToConvert").value;
     //Convert Text to Binaryc
     let padding = "00000000";
-    let exampleLength = 44;
+    let exampleLength = 65732;
     let sliceNum = exampleLength.toString().length;
     let zeros = 8 - sliceNum;
-    let zerosPadding = padding.slice(0,zeros); 
+    let zerosPadding = padding.slice(0,3); 
     let final = zerosPadding + exampleLength;
     console.log(final);
 
-    //length of DNA == 
 
     //padding.slice()
     console.log(text.length);

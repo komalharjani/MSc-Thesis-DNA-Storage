@@ -1,5 +1,4 @@
-let text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
-console.log(text.length);
+let text = "In the twilight rain, these brilliant-hued hibiscus, A lovely sunset.";
 let noErrors = 5;
 let binOutput;
 
@@ -8,30 +7,10 @@ let binOutput;
  */
 function onSubmit() {
     //let text = document.getElementById("textToConvert").value;
-    //Convert Text to Binaryc
-    let padding = "00000000";
-    let exampleLength = 44;
-    let sliceNum = exampleLength.toString().length;
-    let zeros = 8 - sliceNum;
-    let zerosPadding = padding.slice(0,zeros); 
-    let final = zerosPadding + exampleLength;
-    console.log(final);
-
-    //length of DNA == 
-
-    //padding.slice()
-    console.log(text.length);
-    let dnaLength = text.length * 4;
-    let textPlusLength = text + dnaLength;
-    console.log(dnaLength);
-    console.log(text.length);
+    textToBinary(text);
     binOutput = textToBinary(text);
-    console.log(binOutput.length);
-    //8 bytes of Padding for length -- before put 0's so you can extract length
-    //this puts a limit to the length
-    
+    console.log(binOutput);
 
-    //ADDING ENCODING INFORMATION
     //Original String
     let dnaStringOutput = binaryToDNA(binOutput);
 
@@ -41,24 +20,32 @@ function onSubmit() {
     //Add Redundancy and Complement
     let cloneOne = addedPrimers.slice();
     let cloneTwo = addedPrimers.slice();
-    let comp = addComplement(addedPrimers); //or dnaString Output
-    //let reverse = cloneTwo.reverse();
-
-    //Add Blocks
-    let blocks = addBlocks(addPrimers);
-    //errorSimulator(blocks);
-
-    //Add Length
-
-    //ERROR SIMULATOR
     let cloneError = errorSimulator(cloneOne);
     let cloneTwoError = errorSimulator(cloneTwo);
     let dnaStringError = errorSimulator(addedPrimers);
+    let comp = addComplement(addedPrimers); //or dnaString Output
     let errorComp = errorSimulator(comp);
-
-    //Call Error Correcting for Redundant
-    errorCorrectRedundant(cloneError, dnaStringError, cloneTwoError);
     
+    //
+    errorCorrectRedundant(cloneError, dnaStringError, cloneTwoError);
+    let reverse = cloneError.reverse();
+    let addComplement = addComplement(addedPrimers);
+}
+
+/**
+ * Add Redundancies (10-fold?)
+ * Make Dynamic
+ * @param {*} dnaString 
+ */
+function addRedundancy(dnaString) {
+    
+    let cloneError = errorSimulator(cloneOne);
+    let cloneTwoError = errorSimulator(cloneTwo);
+    let dnaStringError = errorSimulator(dnaString);
+    // let comp = getComplement(dnaArray);
+    // let errorComp = errorSimulator(comp);
+    errorCorrectRedundant(cloneError, dnaStringError, cloneTwoError);
+
 }
 
 /**
@@ -136,17 +123,9 @@ function addLength() {
 }
 
 /**
- * 
- */
-function addBlocks() {
-
-}
-
-
-/**
  * Generate Complement of DNA String to be stored
  */
-function addComplement(dnaArray) {
+function addComplement() {
 
     let complement = [];
     for (let i = 0; i < dnaArray.length; i++) {
@@ -165,6 +144,13 @@ function addComplement(dnaArray) {
     }
     let comp = complement.join("");
     return comp;
+}
+
+/**
+ * 
+ */
+function createBlocks() {
+
 }
 
 /**
@@ -215,6 +201,15 @@ function errorCorrectRedundant(cloneOne, errorDNA, cloneTwo) {
         }
     }
 
+    let state = true;
+
+    if(temp.length < errorDNA.length) {
+        state = true;
+    }
+    else {
+        state = false;
+    }
+
     console.log(temp); //all same 
     let indexToInsert = temp.length;
     console.log(missing); //index position
@@ -222,7 +217,6 @@ function errorCorrectRedundant(cloneOne, errorDNA, cloneTwo) {
 
     let majority;
 
-    
     for (let i = 0; i < missing.length; i++) {
         if (missing[i].original === missing[i].cloneOne) {
             majority = missing[i].original;
@@ -248,10 +242,6 @@ function errorCorrectRedundant(cloneOne, errorDNA, cloneTwo) {
     }
     console.log(majority);
     //return what here?
-    console.log(errorDNA);
-    console.log(cloneOne);
-    console.log(cloneTwo);
-    //call loop again -- while true -- but when to turn to false? - at a specified length
 }
 
 let retrieve = [];

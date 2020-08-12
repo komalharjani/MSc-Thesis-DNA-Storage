@@ -9,17 +9,7 @@ let binOutput;
 function onSubmit() {
     //let text = document.getElementById("textToConvert").value;
     //Convert Text to Binaryc
-    let padding = "00000000";
-    let exampleLength = 44;
-    let sliceNum = exampleLength.toString().length;
-    let zeros = 8 - sliceNum;
-    let zerosPadding = padding.slice(0,zeros); 
-    let final = zerosPadding + exampleLength;
-    console.log(final);
-
-    //length of DNA == 
-
-    //padding.slice()
+    let padding = 00000000;
     console.log(text.length);
     let dnaLength = text.length * 4;
     let textPlusLength = text + dnaLength;

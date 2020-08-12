@@ -1,5 +1,4 @@
 let text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
-console.log(text.length);
 let noErrors = 5;
 let binOutput;
 
@@ -8,28 +7,10 @@ let binOutput;
  */
 function onSubmit() {
     //let text = document.getElementById("textToConvert").value;
-    //Convert Text to Binaryc
-    let padding = "00000000";
-    let exampleLength = 44;
-    let sliceNum = exampleLength.toString().length;
-    let zeros = 8 - sliceNum;
-    let zerosPadding = padding.slice(0,zeros); 
-    let final = zerosPadding + exampleLength;
-    console.log(final);
 
-    //length of DNA == 
-
-    //padding.slice()
-    console.log(text.length);
-    let dnaLength = text.length * 4;
-    let textPlusLength = text + dnaLength;
-    console.log(dnaLength);
-    console.log(text.length);
+    //Convert Text to Binary
     binOutput = textToBinary(text);
-    console.log(binOutput.length);
-    //8 bytes of Padding for length -- before put 0's so you can extract length
-    //this puts a limit to the length
-    
+    console.log(binOutput);
 
     //ADDING ENCODING INFORMATION
     //Original String

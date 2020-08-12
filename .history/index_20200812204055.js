@@ -17,7 +17,6 @@ function onSubmit() {
     let final = zerosPadding + exampleLength;
     console.log(final);
 
-    //length of DNA == 
 
     //padding.slice()
     console.log(text.length);

@@ -1,6 +1,5 @@
-let text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
-console.log(text.length);
-let noErrors = 5;
+let text = "In the twilight rain, these brilliant-hued hibiscus, A lovely sunset.";
+let noErrors = 15;
 let binOutput;
 
 /**
@@ -8,28 +7,10 @@ let binOutput;
  */
 function onSubmit() {
     //let text = document.getElementById("textToConvert").value;
-    //Convert Text to Binaryc
-    let padding = "00000000";
-    let exampleLength = 44;
-    let sliceNum = exampleLength.toString().length;
-    let zeros = 8 - sliceNum;
-    let zerosPadding = padding.slice(0,zeros); 
-    let final = zerosPadding + exampleLength;
-    console.log(final);
 
-    //length of DNA == 
-
-    //padding.slice()
-    console.log(text.length);
-    let dnaLength = text.length * 4;
-    let textPlusLength = text + dnaLength;
-    console.log(dnaLength);
-    console.log(text.length);
+    //Convert Text to Binary
     binOutput = textToBinary(text);
-    console.log(binOutput.length);
-    //8 bytes of Padding for length -- before put 0's so you can extract length
-    //this puts a limit to the length
-    
+    console.log(binOutput);
 
     //ADDING ENCODING INFORMATION
     //Original String
@@ -45,8 +26,6 @@ function onSubmit() {
     //let reverse = cloneTwo.reverse();
 
     //Add Blocks
-    let blocks = addBlocks(addPrimers);
-    //errorSimulator(blocks);
 
     //Add Length
 
@@ -58,7 +37,7 @@ function onSubmit() {
 
     //Call Error Correcting for Redundant
     errorCorrectRedundant(cloneError, dnaStringError, cloneTwoError);
-    
+
 }
 
 /**
@@ -132,16 +111,8 @@ function addPrimers(dnaArray) {
  * 
  */
 function addLength() {
-    
-}
-
-/**
- * 
- */
-function addBlocks() {
 
 }
-
 
 /**
  * Generate Complement of DNA String to be stored
@@ -165,6 +136,13 @@ function addComplement(dnaArray) {
     }
     let comp = complement.join("");
     return comp;
+}
+
+/**
+ * 
+ */
+function createBlocks() {
+
 }
 
 /**
@@ -205,7 +183,7 @@ function errorCorrectRedundant(cloneOne, errorDNA, cloneTwo) {
         if (errorDNA[i] === cloneOne[i] && errorDNA[i] === cloneTwo[i]) {
             temp.push(errorDNA[i]);
         }
-        else {
+        else if (errorDNA[i] !== cloneOne[i] || errorDNA[i] !== cloneTwo[i]) {
             missing.push({
                 original: errorDNA[i],
                 cloneOne: cloneOne[i],
@@ -222,35 +200,33 @@ function errorCorrectRedundant(cloneOne, errorDNA, cloneTwo) {
 
     let majority;
 
-    
-    for (let i = 0; i < missing.length; i++) {
-        if (missing[i].original === missing[i].cloneOne) {
-            majority = missing[i].original;
-            cloneTwo.splice(indexToInsert,0,majority);
-            //return errorDNA, cloneOne, cloneTwo;
-            dnaToBinary(cloneTwo);
-            console.log(cloneTwo);
+
+        for (let i = 0; i < missing.length; i++) {
+            if (missing[i].original === missing[i].cloneOne) {
+                majority = missing[i].original;
+                cloneTwo.splice(indexToInsert, 0, majority);
+                //return errorDNA, cloneOne, cloneTwo;
+                dnaToBinary(cloneTwo);
+                console.log(cloneTwo);
+            }
+            else if (missing[i].original === missing[i].cloneTwo) {
+                majority = missing[i].original;
+                cloneOne.splice(indexToInsert, 0, majority);
+                //return errorDNA, cloneOne, cloneTwo;
+                dnaToBinary(cloneOne);
+                console.log(cloneOne);
+            }
+            else if (missing[i].cloneTwo === missing[i].cloneOne) {
+                majority = missing[i].cloneTwo;
+                errorDNA.splice(indexToInsert, 0, majority);
+                //return errorDNA, cloneOne, cloneTwo;
+                dnaToBinary(errorDNA);
+                console.log(errorDNA);
+            }
         }
-        else if (missing[i].original === missing[i].cloneTwo) {
-            majority = missing[i].original;
-            cloneOne.splice(indexToInsert,0,majority);
-            //return errorDNA, cloneOne, cloneTwo;
-            dnaToBinary(cloneOne);
-            console.log(cloneOne);
-        }
-        else if (missing[i].cloneTwo === missing[i].cloneOne) {
-            majority = missing[i].cloneTwo;
-            errorDNA.splice(indexToInsert,0,majority);
-            //return errorDNA, cloneOne, cloneTwo;
-            dnaToBinary(errorDNA);
-            console.log(errorDNA);
-        }
-    }
-    console.log(majority);
+        console.log(majority);
+    //how to correct others? -- join?
     //return what here?
-    console.log(errorDNA);
-    console.log(cloneOne);
-    console.log(cloneTwo);
     //call loop again -- while true -- but when to turn to false? - at a specified length
 }
 

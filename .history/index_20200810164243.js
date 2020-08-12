@@ -1,6 +1,6 @@
-let text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
-console.log(text.length);
-let noErrors = 5;
+let text = "Hello my name is Komal.";
+let noErrors = 15;
+
 let binOutput;
 
 /**
@@ -8,57 +8,10 @@ let binOutput;
  */
 function onSubmit() {
     //let text = document.getElementById("textToConvert").value;
-    //Convert Text to Binaryc
-    let padding = "00000000";
-    let exampleLength = 44;
-    let sliceNum = exampleLength.toString().length;
-    let zeros = 8 - sliceNum;
-    let zerosPadding = padding.slice(0,zeros); 
-    let final = zerosPadding + exampleLength;
-    console.log(final);
-
-    //length of DNA == 
-
-    //padding.slice()
-    console.log(text.length);
-    let dnaLength = text.length * 4;
-    let textPlusLength = text + dnaLength;
-    console.log(dnaLength);
-    console.log(text.length);
+    textToBinary(text);
     binOutput = textToBinary(text);
-    console.log(binOutput.length);
-    //8 bytes of Padding for length -- before put 0's so you can extract length
-    //this puts a limit to the length
-    
-
-    //ADDING ENCODING INFORMATION
-    //Original String
-    let dnaStringOutput = binaryToDNA(binOutput);
-
-    //add Primers
-    let addedPrimers = addPrimers(dnaStringOutput);
-
-    //Add Redundancy and Complement
-    let cloneOne = addedPrimers.slice();
-    let cloneTwo = addedPrimers.slice();
-    let comp = addComplement(addedPrimers); //or dnaString Output
-    //let reverse = cloneTwo.reverse();
-
-    //Add Blocks
-    let blocks = addBlocks(addPrimers);
-    //errorSimulator(blocks);
-
-    //Add Length
-
-    //ERROR SIMULATOR
-    let cloneError = errorSimulator(cloneOne);
-    let cloneTwoError = errorSimulator(cloneTwo);
-    let dnaStringError = errorSimulator(addedPrimers);
-    let errorComp = errorSimulator(comp);
-
-    //Call Error Correcting for Redundant
-    errorCorrectRedundant(cloneError, dnaStringError, cloneTwoError);
-    
+    console.log(binOutput);
+    binaryToDNA(binOutput);
 }
 
 /**
@@ -81,8 +34,9 @@ function textToBinary(text) {
  * @param {*} binOutput 
  */
 function binaryToDNA(binOutput) {
-    // console.log(binOutput.length);
+    console.log(binOutput.length);
     let dnaArray = [];
+    //redundancy (for arrays in an array)
     var twoBitsArray = []; //Array to hold binary elements, each element containing 2 bits
     var i = 0;
     var n = binOutput.length;
@@ -106,7 +60,7 @@ function binaryToDNA(binOutput) {
             dnaArray.push("T");
         }
     }
-    return dnaArray;
+    addPayload(dnaArray);
 }
 
 /**
@@ -120,33 +74,36 @@ function removeHomopolymers() {
  * Add a Payload
  * @param {*} dnaArray 
  */
-function addPrimers(dnaArray) {
+function addPayload(dnaArray) {
     let stringed = dnaArray.join("");
     let primer = "AAAAA"; //Add Primer of 5 A's
     let dnaString = primer + stringed + primer;
     let textLength, dnaLength, binaryLength;
-    return dnaString;
+    redundantArr(dnaString);
+    getComplement(dnaArray);
+    //errorSimulator(dnaString); --> If redundant not called
 }
 
 /**
- * 
+ * Add Redundancies (10-fold?)
+ * Make Dynamic
+ * @param {*} dnaString 
  */
-function addLength() {
-    
+function redundantArr(dnaString) {
+    let clone = dnaString.slice();
+
+    let cloneError = errorSimulator(clone);
+    let dnaStringError = errorSimulator(dnaString);
+   // let comp = getComplement(dnaArray);
+   // let errorComp = errorSimulator(comp);
+    errorCorrection(cloneError, dnaStringError);
+
 }
-
-/**
- * 
- */
-function addBlocks() {
-
-}
-
 
 /**
  * Generate Complement of DNA String to be stored
  */
-function addComplement(dnaArray) {
+function getComplement() {
 
     let complement = [];
     for (let i = 0; i < dnaArray.length; i++) {
@@ -167,6 +124,10 @@ function addComplement(dnaArray) {
     return comp;
 }
 
+// function fixedLengthString() {
+
+// }
+
 /**
  * Error Simulator to delete random information
  * Attempting to mimic sequencing and synthesis errors in practice 
@@ -176,9 +137,11 @@ function errorSimulator(dnaString) { //does this have to deal with a string?
     let errorRate = Math.round(dnaString.length * noErrors / 1000); //error rate user input
     dnaArray = dnaString.split("");
     console.log(dnaArray);
-    let min = 0; //change if errors should be concentrated at end
+
+    let min = 0; //change if ends of string want to be cut
+
     for (let i = 0; i < errorRate; i++) { //for error rate
-        let randomIndex = (Math.floor(Math.random() * dnaArray.length - min + 1) + min) + 1; //generate random index
+        let randomIndex = (Math.floor(Math.random() * dnaArray.length - min +1) + min) + 1; //generate random index
         console.log(randomIndex);
         //min = randomIndex; //set minimum for sequential errors
         console.log(dnaArray[randomIndex + 1]);
@@ -192,66 +155,60 @@ function errorSimulator(dnaString) { //does this have to deal with a string?
  * 
  * @param {*} dnaString 
  */
-function errorCorrectRedundant(cloneOne, errorDNA, cloneTwo) {
+function errorCorrection(cloneError, dnaStringError) {
+   
+    let a = [];
+    let diff = [];
+
+    //Put all elements into a
+    for (let i = 0; i < dnaStringError.length; i++) {
+        a[dnaStringError[i]] = true;
+    }
+
+    for (let i = 0; i < cloneError.length; i++) {
+        if (a[cloneError[i]]) {
+            delete a[cloneError[i]];
+        }
+        else {
+            a[dnaStringError[i]] = true;
+        }
+    }
+
+    for (let k in a) {
+        diff.push(k);
+    }
+
+    console.log(diff);
+    //get index
+    //splice
+    //return 
+
+    diff.join("");
 
     let temp = [];
     let missing = [];
 
-    //run this loop again after fixing one and find second index for number missing
-    //get missing Two Matching
-
-    //Identifies the index of where the error has occured 
-    for (let i = 0; i < errorDNA.length; i++) {
-        if (errorDNA[i] === cloneOne[i] && errorDNA[i] === cloneTwo[i]) {
-            temp.push(errorDNA[i]);
-        }
-        else {
-            missing.push({
-                original: errorDNA[i],
-                cloneOne: cloneOne[i],
-                cloneTwo: cloneTwo[i]
-            })
-            break;
-        }
+    for(let i=0; i < dnaStringError.length; i++) {
+            if(dnaStringError[i] === cloneError[i]) {
+                temp.push(dnaStringError[i]);
+            }
+            else {
+                missing.push(dnaStringError[i]);
+                break;
+            }
     }
+    console.log(temp);
+    console.log(missing);
 
-    console.log(temp); //all same 
     let indexToInsert = temp.length;
-    console.log(missing); //index position
-    //correct in missing 
 
-    let majority;
+    dnaStringError.splice(13,0,diff)
 
-    
-    for (let i = 0; i < missing.length; i++) {
-        if (missing[i].original === missing[i].cloneOne) {
-            majority = missing[i].original;
-            cloneTwo.splice(indexToInsert,0,majority);
-            //return errorDNA, cloneOne, cloneTwo;
-            dnaToBinary(cloneTwo);
-            console.log(cloneTwo);
-        }
-        else if (missing[i].original === missing[i].cloneTwo) {
-            majority = missing[i].original;
-            cloneOne.splice(indexToInsert,0,majority);
-            //return errorDNA, cloneOne, cloneTwo;
-            dnaToBinary(cloneOne);
-            console.log(cloneOne);
-        }
-        else if (missing[i].cloneTwo === missing[i].cloneOne) {
-            majority = missing[i].cloneTwo;
-            errorDNA.splice(indexToInsert,0,majority);
-            //return errorDNA, cloneOne, cloneTwo;
-            dnaToBinary(errorDNA);
-            console.log(errorDNA);
-        }
-    }
-    console.log(majority);
-    //return what here?
-    console.log(errorDNA);
-    console.log(cloneOne);
-    console.log(cloneTwo);
-    //call loop again -- while true -- but when to turn to false? - at a specified length
+    //parity checks - cut long string with primers and check whether that position has 5 A's --> and calculate length - before removing primers ensure that it has recovered dat
+    //check if something is not supposed to be in place
+    dnaToBinary(dnaStringError);
+    dnaToBinary(cloneError);
+    //dnaToBinary(errorComp);
 }
 
 let retrieve = [];
@@ -265,7 +222,6 @@ function compareArray() {
     }
     console.log(retrieve);
 }
-
 
 
 /**
@@ -289,8 +245,7 @@ function dnaToBinary(dnaString) {
             convertedOutput.push("11");
         }
     }
-
-    //check if all A's and then splice
+    // console.log(convertedOutput);
     convertedOutput.splice(0, 5); //remove primer from beginning
     convertedOutput.splice(-5, 5); //remove primer from end
     let conv = convertedOutput.join("");
@@ -323,3 +278,4 @@ function binaryToText(str) {
     console.log(binString);
     return binString;
 }
+

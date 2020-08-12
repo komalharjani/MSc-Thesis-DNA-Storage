@@ -9,17 +9,6 @@ let binOutput;
 function onSubmit() {
     //let text = document.getElementById("textToConvert").value;
     //Convert Text to Binaryc
-    let padding = "00000000";
-    let exampleLength = 44;
-    let sliceNum = exampleLength.toString().length;
-    let zeros = 8 - sliceNum;
-    let zerosPadding = padding.slice(0,zeros); 
-    let final = zerosPadding + exampleLength;
-    console.log(final);
-
-    //length of DNA == 
-
-    //padding.slice()
     console.log(text.length);
     let dnaLength = text.length * 4;
     let textPlusLength = text + dnaLength;
@@ -27,8 +16,6 @@ function onSubmit() {
     console.log(text.length);
     binOutput = textToBinary(text);
     console.log(binOutput.length);
-    //8 bytes of Padding for length -- before put 0's so you can extract length
-    //this puts a limit to the length
     
 
     //ADDING ENCODING INFORMATION
