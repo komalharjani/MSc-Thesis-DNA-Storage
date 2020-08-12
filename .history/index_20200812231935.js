@@ -7,13 +7,15 @@ let binOutput;
  * Called when convert is started
  */
 function onSubmit() {
-
-    //Add Length
+    //let text = document.getElementById("textToConvert").value;
+    //Convert Text to Binaryc
     let input = addLength();
-    binOutput = textToBinary(input);
-    //binOutput = textToBinary(text);
+    binOutput = textToBinary(text);
+    console.log(binOutput);
+    console.log(binOutput.length);
     
     //ADDING ENCODING INFORMATION
+    //Original String
     let dnaStringOutput = binaryToDNA(binOutput);
 
     //add Primers
@@ -23,9 +25,6 @@ function onSubmit() {
     let cloneOne = addedPrimers.slice();
     let cloneTwo = addedPrimers.slice();
     let comp = addComplement(addedPrimers); //or dnaString Output
-    //let cloneOne = dnaStringOutput.slice();
-    //let cloneTwo = dnaStringOutput.slice();
-    //let comp = addComplement(dnaStringOutput);
     //let reverse = cloneTwo.reverse();
 
     //Add Blocks
@@ -125,7 +124,7 @@ function addLength() {
     console.log(final);
     //length of DNA == 32 CHARACTERS AT THE END
     text = text + final;
-    return text;
+    console.log(text);
 }
 
 /**

@@ -11,7 +11,6 @@ function onSubmit() {
     //Add Length
     let input = addLength();
     binOutput = textToBinary(input);
-    //binOutput = textToBinary(text);
     
     //ADDING ENCODING INFORMATION
     let dnaStringOutput = binaryToDNA(binOutput);
@@ -26,6 +25,7 @@ function onSubmit() {
     //let cloneOne = dnaStringOutput.slice();
     //let cloneTwo = dnaStringOutput.slice();
     //let comp = addComplement(dnaStringOutput);
+
     //let reverse = cloneTwo.reverse();
 
     //Add Blocks

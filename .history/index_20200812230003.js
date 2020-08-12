@@ -7,13 +7,27 @@ let binOutput;
  * Called when convert is started
  */
 function onSubmit() {
+    //let text = document.getElementById("textToConvert").value;
+    //Convert Text to Binaryc
+    let padding = "00000000";
+    console.log(text);
+    console.log(text.length);
+    let exampleLength = text.length + 32 + 10;
+    let sliceNum = exampleLength.toString().length;
+    let zeros = 8 - sliceNum;
+    let zerosPadding = padding.slice(0,zeros); 
+    let final = zerosPadding + exampleLength;
+    console.log(final);
+    console.log(final.length);
+    //length of DNA == 32 CHARACTERS AT THE END
 
-    //Add Length
-    let input = addLength();
-    binOutput = textToBinary(input);
-    //binOutput = textToBinary(text);
+    text = text + final;
+    binOutput = textToBinary(text);
+    console.log(binOutput);
+    console.log(binOutput.length);
     
     //ADDING ENCODING INFORMATION
+    //Original String
     let dnaStringOutput = binaryToDNA(binOutput);
 
     //add Primers
@@ -23,9 +37,6 @@ function onSubmit() {
     let cloneOne = addedPrimers.slice();
     let cloneTwo = addedPrimers.slice();
     let comp = addComplement(addedPrimers); //or dnaString Output
-    //let cloneOne = dnaStringOutput.slice();
-    //let cloneTwo = dnaStringOutput.slice();
-    //let comp = addComplement(dnaStringOutput);
     //let reverse = cloneTwo.reverse();
 
     //Add Blocks
@@ -116,16 +127,7 @@ function addPrimers(dnaArray) {
  * 
  */
 function addLength() {
-    let padding = "00000000";
-    let textLength = text.length;
-    let noNums = textLength.toString().length;
-    let zeros = 8 - noNums; 
-    let zerosPadding = padding.slice(0,zeros); 
-    let final = zerosPadding + textLength;
-    console.log(final);
-    //length of DNA == 32 CHARACTERS AT THE END
-    text = text + final;
-    return text;
+    
 }
 
 /**
@@ -267,7 +269,7 @@ function getLength(decodedResult) {
     let extractedLength = decode(decodedResult);
     let finalNum = binaryToText(extractedLength);
     let num = finalNum.replace(/^0+/, ''); 
-    console.log(num); //accurate
+    console.log(num);
     return num;   
 }
 
@@ -294,13 +296,10 @@ function dnaToBinary(dnaString) {
     }
     removePrimers(decodedResult);
     let extractedLength = getLength(decodedResult); //call getLength from here
-    console.log(extractedLength);
     errorCorrectLength(extractedLength);
 }
 
 function errorCorrectLength(len) {
-    let dnaLength = (len * 4) + 42;
-    console.log(dnaLength);
 }
 
 

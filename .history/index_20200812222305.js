@@ -7,13 +7,25 @@ let binOutput;
  * Called when convert is started
  */
 function onSubmit() {
+    //let text = document.getElementById("textToConvert").value;
+    //Convert Text to Binaryc
+    let padding = "00000000";
+    let exampleLength = 6786;
+    let sliceNum = exampleLength.toString().length;
+    let zeros = 8 - sliceNum;
+    let zerosPadding = padding.slice(0,zeros); 
+    let final = zerosPadding + exampleLength;
+    console.log(final);
+    //length of DNA == 
 
-    //Add Length
-    let input = addLength();
-    binOutput = textToBinary(input);
-    //binOutput = textToBinary(text);
+    text = text + final;
+    console.log(text);
+    binOutput = textToBinary(text);
+    console.log(binOutput.length);
+    //this puts a limit to the length
     
     //ADDING ENCODING INFORMATION
+    //Original String
     let dnaStringOutput = binaryToDNA(binOutput);
 
     //add Primers
@@ -23,9 +35,6 @@ function onSubmit() {
     let cloneOne = addedPrimers.slice();
     let cloneTwo = addedPrimers.slice();
     let comp = addComplement(addedPrimers); //or dnaString Output
-    //let cloneOne = dnaStringOutput.slice();
-    //let cloneTwo = dnaStringOutput.slice();
-    //let comp = addComplement(dnaStringOutput);
     //let reverse = cloneTwo.reverse();
 
     //Add Blocks
@@ -116,16 +125,7 @@ function addPrimers(dnaArray) {
  * 
  */
 function addLength() {
-    let padding = "00000000";
-    let textLength = text.length;
-    let noNums = textLength.toString().length;
-    let zeros = 8 - noNums; 
-    let zerosPadding = padding.slice(0,zeros); 
-    let final = zerosPadding + textLength;
-    console.log(final);
-    //length of DNA == 32 CHARACTERS AT THE END
-    text = text + final;
-    return text;
+    
 }
 
 /**
@@ -260,76 +260,48 @@ function compareArray() {
 }
 
 
-function getLength(decodedResult) {
-    //decodedResult.splice(-5, 5); //remove primer from en
-    let removeNum = decodedResult.length - 32;
-    decodedResult.splice(0, removeNum);
-    let extractedLength = decode(decodedResult);
-    let finalNum = binaryToText(extractedLength);
-    let num = finalNum.replace(/^0+/, ''); 
-    console.log(num); //accurate
-    return num;   
-}
 
 /**
  * Convert error corrected string back to binary  
  * @param {*} dnaString 
  */
 function dnaToBinary(dnaString) {
-    let decodedResult = [];
+    let convertedOutput = [];
 
     for (let i = 0; i < dnaString.length; i++) {
         if (dnaString[i] == "A") {
-            decodedResult.push("00");
+            convertedOutput.push("00");
         }
         if (dnaString[i] == "G") {
-            decodedResult.push("01");
+            convertedOutput.push("01");
         }
         if (dnaString[i] == "C") {
-            decodedResult.push("10");
+            convertedOutput.push("10");
         }
         if (dnaString[i] == "T") {
-            decodedResult.push("11");
+            convertedOutput.push("11");
         }
     }
-    removePrimers(decodedResult);
-    let extractedLength = getLength(decodedResult); //call getLength from here
-    console.log(extractedLength);
-    errorCorrectLength(extractedLength);
-}
 
-function errorCorrectLength(len) {
-    let dnaLength = (len * 4) + 42;
-    console.log(dnaLength);
-}
-
-
-function removePrimers(convertedOutput) {
- //check if all A's and then splice
- convertedOutput.splice(0, 5); //remove primer from beginning
- convertedOutput.splice(-5, 5); //remove primer from en
- let decoded =  decode(convertedOutput);
- binaryToText(decoded);
-
-}
-
-function decode(convertedOutput) {
+    //check if all A's and then splice
+    convertedOutput.splice(0, 5); //remove primer from beginning
+    convertedOutput.splice(-5, 5); //remove primer from end
     let conv = convertedOutput.join("");
     // console.log(conv);
-   
+
+
     let temp = [];
     var i = 0;
     var n = conv.length;
-   
+
     while (i < n) {
         temp.push(conv.slice(i, i += 8));
     }
-   
+
     // console.log(temp);
     temp = temp.join(" ");
-    return temp;
+    binaryToText(temp);
 }
-
 
 /**
  * Map Binary back to text using ASCII character codes
