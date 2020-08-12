@@ -174,7 +174,7 @@ function errorSimulator(dnaString) { //does this have to deal with a string?
         console.log(randomIndex);
         //min = randomIndex; //set minimum for sequential errors
         console.log(dnaArray[randomIndex + 1]);
-        dnaArray.splice(randomIndex, 1); //remove element from string here
+        dnaArray.splice(randomIndex, 5); //remove element from string here
         console.log(dnaArray);
     }
     return dnaArray;

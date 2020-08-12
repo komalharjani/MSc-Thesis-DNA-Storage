@@ -292,6 +292,7 @@ function dnaToBinary(dnaString) {
 
 function errorCorrectLength(len) {
     let dnaLength = (len * 4) + 42;
+    console.log(dnaLength);
 }
 
 

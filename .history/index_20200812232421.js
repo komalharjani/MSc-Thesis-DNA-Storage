@@ -12,7 +12,7 @@ function onSubmit() {
     let input = addLength();
     binOutput = textToBinary(input);
     //binOutput = textToBinary(text);
-
+    
     //ADDING ENCODING INFORMATION
     let dnaStringOutput = binaryToDNA(binOutput);
 
@@ -41,7 +41,7 @@ function onSubmit() {
 
     //Call Error Correcting for Redundant
     errorCorrectRedundant(cloneError, dnaStringError, cloneTwoError);
-
+    
 }
 
 /**
@@ -118,8 +118,8 @@ function addLength() {
     let padding = "00000000";
     let textLength = text.length;
     let noNums = textLength.toString().length;
-    let zeros = 8 - noNums;
-    let zerosPadding = padding.slice(0, zeros);
+    let zeros = 8 - noNums; 
+    let zerosPadding = padding.slice(0,zeros); 
     let final = zerosPadding + textLength;
     console.log(final);
     //length of DNA == 32 CHARACTERS AT THE END
@@ -189,68 +189,73 @@ function errorCorrectRedundant(cloneOne, errorDNA, cloneTwo) {
     let temp = [];
     let missing = [];
 
-
-
     //run this loop again after fixing one and find second index for number missing
     //get missing Two Matching
 
+    //Identifies the index of where the error has occured 
+    for (let i = 0; i < errorDNA.length; i++) {
+        if (errorDNA[i] === cloneOne[i] && errorDNA[i] === cloneTwo[i]) {
+            temp.push(errorDNA[i]);
+        }
+        else {
+            missing.push({
+                original: errorDNA[i],
+                cloneOne: cloneOne[i],
+                cloneTwo: cloneTwo[i]
+            })
+            break;
+        }
+    }
+
+    console.log(temp); //all same 
+    let indexToInsert = temp.length;
+    console.log(missing); //index position
+    //correct in missing 
+
     let majority;
 
-    let extractedLengthDiff = 4;
-
-    while (extractedLengthDiff > 0) {
-        //Identifies the index of where the error has occured 
-        for (let j = 0; j < errorDNA.length; j++) {
-            if (errorDNA[j] === cloneOne[j] && errorDNA[j] === cloneTwo[j]) {
-                temp.push(errorDNA[j]);
-            }
-            else {
-                missing.push({
-                    original: errorDNA[j],
-                    cloneOne: cloneOne[j],
-                    cloneTwo: cloneTwo[j]
-                })
-                break;
-            }
+    
+    for (let i = 0; i < missing.length; i++) {
+        if (missing[i].original === missing[i].cloneOne) {
+            majority = missing[i].original;
+            cloneTwo.splice(indexToInsert,0,majority);
+            //return errorDNA, cloneOne, cloneTwo;
+            dnaToBinary(cloneTwo);
+            console.log(cloneTwo);
         }
-
-        console.log(temp); //all same 
-        let indexToInsert = temp.length;
-        console.log(missing); //index position
-        //correct in missing 
-
-        for (let i = 0; i < missing.length; i++) {
-            if (missing[i].original === missing[i].cloneOne) {
-                majority = missing[i].original;
-                cloneTwo.splice(indexToInsert, 0, majority);
-                //return errorDNA, cloneOne, cloneTwo;
-                dnaToBinary(cloneTwo);
-                console.log(cloneTwo);
-            }
-            else if (missing[i].original === missing[i].cloneTwo) {
-                majority = missing[i].original;
-                cloneOne.splice(indexToInsert, 0, majority);
-                //return errorDNA, cloneOne, cloneTwo;
-                dnaToBinary(cloneOne);
-                console.log(cloneOne);
-            }
-            else if (missing[i].cloneTwo === missing[i].cloneOne) {
-                majority = missing[i].cloneTwo;
-                errorDNA.splice(indexToInsert, 0, majority);
-                //return errorDNA, cloneOne, cloneTwo;
-                dnaToBinary(errorDNA);
-                console.log(errorDNA);
-            }
+        else if (missing[i].original === missing[i].cloneTwo) {
+            majority = missing[i].original;
+            cloneOne.splice(indexToInsert,0,majority);
+            //return errorDNA, cloneOne, cloneTwo;
+            dnaToBinary(cloneOne);
+            console.log(cloneOne);
         }
-        missing = [];
-        temp = [];
-
-        //call loop again -- while true -- but when to turn to false? - at a specified length
-        extractedLengthDiff--;
+        else if (missing[i].cloneTwo === missing[i].cloneOne) {
+            majority = missing[i].cloneTwo;
+            errorDNA.splice(indexToInsert,0,majority);
+            //return errorDNA, cloneOne, cloneTwo;
+            dnaToBinary(errorDNA);
+            console.log(errorDNA);
+        }
     }
-    // dnaToBinary(cloneTwo);
-    // dnaToBinary(cloneOne);
-    // dnaToBinary(errorDNA);
+    console.log(majority);
+    //return what here?
+    console.log(errorDNA);
+    console.log(cloneOne);
+    console.log(cloneTwo);
+    //call loop again -- while true -- but when to turn to false? - at a specified length
+}
+
+let retrieve = [];
+function compareArray() {
+    for (let i = 0; i < dnaArray.length; i++) {
+        for (let j = -1; j < dnaArray.length; j--) {
+            if (dnaArray[i] == complement[j]) {
+                retrieve.push(dnaArray[i]);
+            }
+        }
+    }
+    console.log(retrieve);
 }
 
 
@@ -260,8 +265,9 @@ function getLength(decodedResult) {
     decodedResult.splice(0, removeNum);
     let extractedLength = decode(decodedResult);
     let finalNum = binaryToText(extractedLength);
-    let num = finalNum.replace(/^0+/, '');
-    return num;
+    let num = finalNum.replace(/^0+/, ''); 
+    console.log(num); //accurate
+    return num;   
 }
 
 /**
@@ -287,35 +293,37 @@ function dnaToBinary(dnaString) {
     }
     removePrimers(decodedResult);
     let extractedLength = getLength(decodedResult); //call getLength from here
+    console.log(extractedLength);
     errorCorrectLength(extractedLength);
 }
 
 function errorCorrectLength(len) {
     let dnaLength = (len * 4) + 42;
+    console.log(dnaLength);
 }
 
 
 function removePrimers(convertedOutput) {
-    //check if all A's and then splice
-    convertedOutput.splice(0, 5); //remove primer from beginning
-    convertedOutput.splice(-5, 5); //remove primer from en
-    let decoded = decode(convertedOutput);
-    binaryToText(decoded);
+ //check if all A's and then splice
+ convertedOutput.splice(0, 5); //remove primer from beginning
+ convertedOutput.splice(-5, 5); //remove primer from en
+ let decoded =  decode(convertedOutput);
+ binaryToText(decoded);
 
 }
 
 function decode(convertedOutput) {
     let conv = convertedOutput.join("");
     // console.log(conv);
-
+   
     let temp = [];
     var i = 0;
     var n = conv.length;
-
+   
     while (i < n) {
         temp.push(conv.slice(i, i += 8));
     }
-
+   
     // console.log(temp);
     temp = temp.join(" ");
     return temp;

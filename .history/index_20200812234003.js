@@ -196,7 +196,7 @@ function errorCorrectRedundant(cloneOne, errorDNA, cloneTwo) {
 
     let majority;
 
-    let extractedLengthDiff = 4;
+    let extractedLengthDiff = 3;
 
     while (extractedLengthDiff > 0) {
         //Identifies the index of where the error has occured 

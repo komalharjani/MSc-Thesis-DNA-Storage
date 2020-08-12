@@ -244,7 +244,10 @@ function errorCorrectRedundant(cloneOne, errorDNA, cloneTwo) {
         }
         missing = [];
         temp = [];
-
+        console.log(majority);
+        console.log(errorDNA);
+        console.log(cloneOne);
+        console.log(cloneTwo);
         //call loop again -- while true -- but when to turn to false? - at a specified length
         extractedLengthDiff--;
     }
@@ -261,6 +264,7 @@ function getLength(decodedResult) {
     let extractedLength = decode(decodedResult);
     let finalNum = binaryToText(extractedLength);
     let num = finalNum.replace(/^0+/, '');
+    console.log(num); //accurate
     return num;
 }
 
@@ -287,11 +291,13 @@ function dnaToBinary(dnaString) {
     }
     removePrimers(decodedResult);
     let extractedLength = getLength(decodedResult); //call getLength from here
+    console.log(extractedLength);
     errorCorrectLength(extractedLength);
 }
 
 function errorCorrectLength(len) {
     let dnaLength = (len * 4) + 42;
+    console.log(dnaLength);
 }
 
 
