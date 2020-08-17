@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="LoginPage">
+        <div class="header"><br>
+            <h2> DNA Converter </h2>
+        </div><br>
+
+        <div class="loginContainer">
+            <h3>Encoder</h3>
+            <input type="text" placeholder="Text for Conversion" id="textToConvert" required class="input">
+            <label for="text"><b>Image Here</b></label>
+            <h3>Choose Error Recovery Mechanisms</h3>
+            <form>
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"> Redundancy </label><br>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2"> Primers </label><br>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3"> Fixed Length</label><br><br>
+            </form>
+            <button onclick="onSubmit()" id="submit">Convert</button>
+            <div class="column" style="background-color:#aaa;">
+            </div>
+            <div class="row">
+                <div class="column" style="background-color:#aaa;">
+                  <h2>Column 1</h2>
+                  <p id="dnaOutput"></p>
+            </div>
+
+        </div><br>
+        <div class="loginContainer">
+            <h3>Error Simulator:</h3>
+            <h4>Choose Error Rate:</h4>
+            <input type="range" name="rangeInput" min="0" max="10" onchange="updateTextInput(this.value);">
+            <input type="number" id="textInput" value="" class="range" max="10"><br>
+            <h4>Choose Errors:</h4<br>
+                <form>
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <label for="vehicle1"> Insertion </label><br>
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <label for="vehicle2"> Deletion </label><br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <label for="vehicle3"> Substitution </label><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+                <button onclick="" id="error">Apply Simulation</button><br>
+                <!--Take Error Rate from On Submit-->
+                <h2>Binary Output:</h2>
+                <h2>Recovered Data</h2>
+                <h2>Oops! Some data was unrecoverable. </h2>
+        </div>
+    </div>
+
+</body>
+<script src="index.js"></script>
+
+</html>

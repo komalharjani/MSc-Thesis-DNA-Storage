@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="LoginPage">
+        <div class="header"><br>
+            <h2> DNA Converter </h2>
+        </div><br>
+
+        <div class="loginContainer">
+            <h3>Encoder</h3>
+            <input type="text" placeholder="Text for Conversion" id="textToConvert" required class="input">
+            <label for="text"><b>Image Here</b></label>
+            <h3>Choose Error Recovery Mechanisms</h3>
+            <form>
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"> Redundancy </label><br>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2"> Primers </label><br>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3"> Fixed Length</label><br><br>
+            </form>
+
+        </div><br>
+        <div class="loginContainer">
+            <h3>Error Simulator</h3>
+            <h4>Choose Error Rate:</h4>
+            <input type="range" min="0" max="10" value="0" class="slider" id="myRange">
+            <p>Value: <span id="demo"></span></p>
+
+            <h4>Choose Errors:</h4<br>
+                <form>
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <label for="vehicle1"> Insertion </label><br>
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <label for="vehicle2"> Deletion </label><br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <label for="vehicle3"> Substitution </label><br><br>
+                </form>
+                <button class="button" onclick="onConvert()" id="submit">Convert</button><br>
+                <!--Take Error Rate from On Submit-->
+
+                <div class="row">
+                    <h2>DNA Output</h2>
+                    <button class="btnn" id="hide">Hide</button>
+                    <button class="btnn" id="show">Show</button>
+                    <div class="column">
+                        <p id="dnaOutput"></p>
+                    </div>
+                </div>
+    
+                <script>
+                    $(document).ready(function () {
+                        $("#hide").click(function () {
+                            $("p").hide();
+                        });
+                        $("#show").click(function () {
+                            $("p").show();
+                        });
+                    });
+                </script>
+
+                <h2>Data after Error Loss:</h2>
+                <div class="row">
+                    <button class="btnn" id="hideDNA">Hide</button>
+                    <button class="btnn" id="showDNA">Show</button>
+                    <div class="column">
+                        <p id="corruptData"></p>
+                    </div>
+                </div>
+                <h2>Data after Error Correction: </h2>
+                <div class="row">
+                    <button class="btnn" id="hideFinal">Hide</button>
+                    <button class="btnn" id="showFinal">Show</button>
+                    <div class="column">
+                        <p id="recoveredData"></p>
+                    </div>
+                </div>
+
+                <h2>Error Recovery Rate:</h2>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#hideDNA").click(function () {
+                $("p").hide();
+            });
+            $("#showDNA").click(function () {
+                $("p").show();
+            });
+        });
+    </script>
+
+</body>
+<script src="index.js"></script>
+
+</html>

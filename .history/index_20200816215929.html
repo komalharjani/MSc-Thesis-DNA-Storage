@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="LoginPage">
+        <div class="header"><br>
+            <h2> DNA Converter </h2>
+        </div>
+
+        <div class="loginContainer">
+            <label for="text"><b>Enter Text</b></label>
+            <input type="text" placeholder="Text for Conversion" id="textToConvert" required class="input">
+            <button onclick="onSubmit()" id="submit">Convert</button>
+            <h2>Binary Output:</h2>
+            <h2>DNA Output:</h2>
+            <h2>Run Error Simulator:</h2>
+            <h2>Check Box Here? Primers? Redundancy?</h2>
+            <form action="/action_page.php">
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"> I have a bike</label><br>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2"> I have a car</label><br>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3"> I have a boat</label><br><br>
+                <input type="submit" value="Submit">
+            </form>
+
+            <label>Choose Error Rate:</label><br>
+            <input type="range" name="rangeInput" min="0" max="10" onchange="updateTextInput(this.value);"><br>
+            <input type="number" id="textInput" value="" class="range" max="10"><br>
+            <button onclick="" id="error">Apply Simulation</button><br>
+            <!--Take Error Rate from On Submit-->
+            <h2>DNA Output:</h2>
+            <h2>Binary Output:</h2>
+            <h2>Recovered Data</h2>
+            <h2>Oops! Some data was unrecoverable. </h2>
+        </div>
+    </div>
+    </div>
+
+</body>
+<script src="index.js"></script>
+
+</html>
