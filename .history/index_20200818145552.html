@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="LoginPage">
+        <div class="header"><br>
+            <h2> DNASS </h2>
+        </div><br>
+
+        <div class="loginContainer">
+            <h3>Welcome </h3>
+        </div><br>
+
+        <div class="loginContainer">
+            <input type="reset" value="Reset" onClick="window.location.reload()">
+            <h3>Encoder</h3>
+            <input type="text" placeholder="Text for Conversion" id="textToConvert" required class="input">
+            <h3>Choose Error Recovery Mechanisms (Upto 3?)</h3>
+                <input type="checkbox" id="original">
+                <label for="vehicle1"> Original </label><br>
+                <!--<input type="number"><br>-->
+                <input type="checkbox" id="comp">
+                <label> Complement </label><br>
+                <!--<input type="number"><br>-->
+                <input type="checkbox" id="rev">
+                <label> Reverse</label><br>
+                <!--<input type="number"><br>-->
+                <input type="checkbox" id="revComp">
+                <label> Reverse Complement</label><br>
+                <!--<input type="number"><br>-->
+                <input type="checkbox" id="fixed">
+                <label> Fixed Length Strings</label><br>
+                <!--<input type="number"><br>-->
+
+                <h3>Error Simulator</h3>
+                <h4>Choose Error Rate:</h4>
+                <input type="range" min="0" max="10" value="0" class="slider" id="myRange">
+                <p>Value: <span id="demo"></span></p>
+
+                <h4>Choose Errors:</h4>
+                    <input type="checkbox" id="insert">
+                    <label> Insertion </label><br>
+                    <b><label for="noCharsError">Specify how many characters should be inserted at once (this will be counted as a single error)::</label><br><br></b>
+                    <input type="number" min="1" max="25"><br><br>
+                    <input type="checkbox" id="delete">
+                    <label> Deletion </label><br>
+                    <b><label for="noCharsError">Specify how many characters should be deleted at once (this will be counted as a single error):</label><br><br></b>
+                    <input type="number" min="1" max="25"><br><br>
+                    <input type="checkbox" id="sub">
+                    <label> Substitution </label><br>
+                    <b><label for="noCharsError">Specify how many characters should be substituted (this will be counted as a single error):</label><br><br></b>
+                    <input type="number" min="1" max="25"><br><br>
+                    <b><p>Error Dispersion:</p></b>
+                    <input type="radio" id="dispersed">
+                    <label for="dispersed">Dispersed</label><br>
+                    <input type="radio" id="endDNA">
+                    <label for="endDNA">End of String</label><br><br>
+            <button class="button" onclick="onConvert()" id="submit">Convert</button><br>
+            <!--Take Error Rate from On Submit-->
+        </div><br>
+
+        <div class="loginContainer">
+
+            <h2>Results:</h2>
+            <p id="errorRateDisplay"></p>
+
+            <h2>DNA String</h2>
+            <div class="row">
+                <div class="column">
+                    <details>
+                        <summary>Expand</summary>
+                        <p id="dnaOutput"></p>
+                    </details>
+                </div>
+            </div>
+
+            <h2>After Data Loss</h2>
+            <div class="row">
+                <div class="column">
+                    <details>
+                        <summary>Expand</summary>
+                        <p id="corruptData"></p>
+                    </details>
+                </div>
+            </div>
+
+            <h2>Data after Error Correction: </h2>
+            <div class="row">
+                <div class="column">
+                    <details>
+                        <summary>Expand</summary>
+                        <p id="recoveredData"></p>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="index.js"></script>
+
+</html>

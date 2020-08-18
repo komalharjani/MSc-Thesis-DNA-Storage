@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="LoginPage">
+        <div class="header"><br>
+            <h2> DNASS </h2>
+        </div><br>
+
+        <div class="loginContainer">
+            <h3>Encoder</h3>
+            <input type="text" placeholder="Text for Conversion" id="textToConvert" required class="input">
+            <h3>Choose Error Recovery Mechanisms (Upto 3?)</h3>
+            <form>
+                <input type="checkbox" id="original" name="vehicle1" value="Bike">
+                <label for="vehicle1"> Original </label><br>
+                <!--<input type="number"><br>-->
+                <input type="checkbox" id="comp" name="vehicle2" value="Car">
+                <label for="vehicle2"> Complement </label><br>
+                <!--<input type="number"><br>-->
+                <input type="checkbox" id="rev" name="vehicle3" value="Boat">
+                <label for="vehicle3"> Reverse</label><br>
+                <!--<input type="number"><br>-->
+                <input type="checkbox" id="revComp" name="vehicle3" value="Boat">
+                <label for="vehicle3"> Reverse Complement</label><br>
+                <!--<input type="number"><br>-->
+                <input type="checkbox" id="fixed" name="vehicle3" value="Boat">
+                <label for="vehicle3"> Fixed Length Strings</label><br>
+                <!--<input type="number"><br>-->
+            </form>
+
+            <h3>Error Simulator</h3>
+            <h4>Choose Error Rate:</h4>
+            <input type="range" min="0" max="10" value="0" class="slider" id="myRange">
+            <p>Value: <span id="demo"></span></p>
+
+            <h4>Choose Errors:</h4<br>
+                <form>
+                    <input type="checkbox" id="insert" name="vehicle1" value="Bike">
+                    <label for="vehicle1"> Insertion </label><br>
+                    <input type="checkbox" id="delete" name="vehicle2" value="Car">
+                    <label for="vehicle2"> Deletion </label><br>
+                    <input type="checkbox" id="sub" name="vehicle3" value="Boat">
+                    <label for="vehicle3"> Substitution </label><br>
+                    <p>Error Dispersion:</p>
+                    <input type="radio" id="dispersed" name="age" value="30">
+                    <label for="age1">Dispersed</label><br>
+                    <input type="radio" id="endDNA" name="age" value="60">
+                    <label for="age2">End of String</label><br>
+                </form><br>
+                <button class="button" onclick="onConvert()" id="submit">Convert</button><br>
+                <!--Take Error Rate from On Submit-->
+
+
+                <br><button class="btnn" id="hide">Hide</button>
+                <button class="btnn" id="show">Show</button>
+                <div class="row">
+                    <summary>DNA Output</summary>
+                    <div class="column">
+                        <details>
+                            <p id="dnaOutput"></p>
+                        </details>
+                    </div>
+                </div>
+
+                <script>
+                    $(document).ready(function () {
+                        $("#hide").click(function () {
+                            $("p").hide();
+                        });
+                        $("#show").click(function () {
+                            $("p").show();
+                        });
+                    });
+                </script>
+
+                <h2>Data after Error Loss:</h2>
+                <div class="row">
+                    <div class="column">
+                        <details>
+                            <p id="corruptData"></p>
+                        </details>
+                    </div>
+                </div>
+                <h2>Data after Error Correction: </h2>
+                <div class="row">
+                    <div class="column">
+                        <p id="recoveredData"></p>
+                    </div>
+                </div>
+
+                <h2>Error Recovery Rate:</h2>
+        </div>
+    </div>
+
+</body>
+<script src="index.js"></script>
+
+</html>
