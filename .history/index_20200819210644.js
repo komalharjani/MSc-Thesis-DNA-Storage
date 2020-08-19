@@ -1,5 +1,6 @@
 var start = new Date();
 console.time("execution time");
+let text = document.getElementById("textToConvert").value;
 //let text = "How promotion excellent curiosity yet attempted happiness. Gay prosperous impression had conviction. For every delay death ask style. Me mean able my by in they. Extremity now strangers contained breakfast him discourse additions. Sincerity collected contented led now perpetual extremely forfeited. Two assure edward whence the was. Who worthy yet ten boy denote wonder. Weeks views her sight old tears sorry. Additions can suspected its concealed put furnished. Met the why particular devonshire decisively considered partiality. Certain it waiting no entered is. Passed her indeed uneasy shy polite appear denied. Oh less girl no walk. At he spot with five of view. Months on ye at by esteem desire warmth former. Sure that that way gave any fond now. His boy middleton sir nor engrossed affection excellent. Dissimilar compliment cultivated preference eat sufficient may. Well next door soon we mr he four. Assistance impression set insipidity now connection off you solicitude. Under as seems we me stuff those style at. Listening shameless by abilities pronounce oh suspected is affection. Next it draw in draw much bred. Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though. Attended of on stronger or mr pleasure. Rich four like real yet west get. Felicity in dwelling to drawings. His pleasure new steepest for reserved formerly disposed jennings. Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. Quiet ought match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on. Not him old music think his found enjoy merry. Listening acuteness dependent at or an. Apartments thoroughly unsatiable terminated sex how themselves. She are ten hours wrong walls stand early. Domestic perceive on an ladyship extended received do. Why jennings our whatever his learning gay perceive. Is against no he without subject. Bed connection unreserved preference partiality not unaffected. Years merit trees so think in hoped we as. On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any. Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness. Husbands see disposed surprise likewise humoured yet pleasure. Fifteen no inquiry cordial so resolve garrets as. Impression was estimating surrounded solicitude indulgence son shy. How promotion excellent curiosity yet attempted happiness. Gay prosperous impression had conviction. For every delay death ask style. Me mean able my by in they. Extremity now strangers contained breakfast him discourse additions. Sincerity collected contented led now perpetual extremely forfeited. Two assure edward whence the was. Who worthy yet ten boy denote wonder. Weeks views her sight old tears sorry. Additions can suspected its concealed put furnished. Met the why particular devonshire decisively considered partiality. Certain it waiting no entered is. Passed her indeed uneasy shy polite appear denied. Oh less girl no walk. At he spot with five of view. Months on ye at by esteem desire warmth former. Sure that that way gave any fond now. His boy middleton sir nor engrossed affection excellent. Dissimilar compliment cultivated preference eat sufficient may. Well next door soon we mr he four. Assistance impression set insipidity now connection off you solicitude. Under as seems we me stuff those style at. Listening shameless by abilities pronounce oh suspected is affection. Next it draw in draw much bred. Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though. Attended of on stronger or mr pleasure. Rich four like real yet west get. Felicity in dwelling to drawings. His pleasure new steepest for reserved formerly disposed jennings. Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. Quiet ought match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on. Not him old music think his found enjoy merry. Listening acuteness dependent at or an. Apartments thoroughly unsatiable terminated sex how themselves. She are ten hours wrong walls stand early. Domestic perceive on an ladyship extended received do. Why jennings our whatever his learning gay perceive. Is against no he without subject. Bed connection unreserved preference partiality not unaffected. Years merit trees so think in hoped we as. On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any. Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness. Husbands see disposed surprise likewise humoured yet pleasure. Fifteen no inquiry cordial so resolve garrets as. Impression was estimating surrounded solicitude indulgence son shy.How promotion excellent curiosity yet attempted happiness. Gay prosperous impression had conviction. For every delay death ask style. Me mean able my by in they. Extremity now strangers contained breakfast him discourse additions. Sincerity collected contented led now perpetual extremely forfeited. Two assure edward whence the was. Who worthy yet ten boy denote wonder. Weeks views her sight old tears sorry. Additions can suspected its concealed put furnished. Met the why particular devonshire decisively considered partiality. Certain it waiting no entered is. Passed her indeed uneasy shy polite appear denied. Oh less girl no walk. At he spot with five of view. Months on ye at by esteem desire warmth former. Sure that that way gave any fond now. His boy middleton sir nor engrossed affection excellent. Dissimilar compliment cultivated preference eat sufficient may. Well next door soon we mr he four. Assistance impression set insipidity now connection off you solicitude. Under as seems we me stuff those style at. Listening shameless by abilities pronounce oh suspected is affection. Next it draw in draw much bred. Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though. Attended of on stronger or mr pleasure. Rich four like real yet west get. Felicity in dwelling to drawings. His pleasure new steepest for reserved formerly disposed jennings. Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. Quiet ought match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on. Not him old music think his found enjoy merry. Listening acuteness dependent at or an. Apartments thoroughly unsatiable terminated sex how themselves. She are ten hours wrong walls stand early. Domestic perceive on an ladyship extended received do. Why jennings our whatever his learning gay perceive. Is against no he without subject. Bed connection unreserved preference partiality not unaffected. Years merit trees so think in hoped we as. On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any. Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness. Husbands see disposed surprise likewise humoured yet pleasure. Fifteen no inquiry cordial so resolve garrets as. Impression was estimating surrounded solicitude indulgence son shy. How promotion excellent curiosity yet attempted happiness. Gay prosperous impression had conviction. For every delay death ask style. Me mean able my by in they. Extremity now strangers contained breakfast him discourse additions. Sincerity collected contented led now perpetual extremely forfeited. Two assure edward whence the was. Who worthy yet ten boy denote wonder. Weeks views her sight old tears sorry. Additions can suspected its concealed put furnished. Met the why particular devonshire decisively considered partiality. Certain it waiting no entered is. Passed her indeed uneasy shy polite appear denied. Oh less girl no walk. At he spot with five of view. Months on ye at by esteem desire warmth former. Sure that that way gave any fond now. His boy middleton sir nor engrossed affection excellent. Dissimilar compliment cultivated preference eat sufficient may. Well next door soon we mr he four. Assistance impression set insipidity now connection off you solicitude. Under as seems we me stuff those style at. Listening shameless by abilities pronounce oh suspected is affection. Next it draw in draw much bred. Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though. Attended of on stronger or mr pleasure. Rich four like real yet west get. Felicity in dwelling to drawings. His pleasure new steepest for reserved formerly disposed jennings. Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. Quiet ought match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on. Not him old music think his found enjoy merry. Listening acuteness dependent at or an. Apartments thoroughly unsatiable terminated sex how themselves. She are ten hours wrong walls stand early. Domestic perceive on an ladyship extended received do. Why jennings our whatever his learning gay perceive. Is against no he without subject. Bed connection unreserved preference partiality not unaffected. Years merit trees so think in hoped we as. On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any. Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness. Husbands see disposed surprise likewise humoured yet pleasure. Fifteen no inquiry cordial so resolve garrets as. Impression was estimating surrounded solicitude indulgence son shy. ";
 //let noErrors = 2;
 //let text = "Hello my name is Komal."
@@ -21,7 +22,6 @@ let binOutput;
  */
 function onConvert() {
 
-    let text = document.getElementById("inputText").value;
     let blocks = document.getElementById("fixed").checked;
     let revComp = document.getElementById("revComp").checked;
     let original = document.getElementById("original").checked;
@@ -33,37 +33,7 @@ function onConvert() {
 
     if (blocks) {
 
-        generateBlocks(text);
-        
-    }
-
-    if (original) {
-
-        generateOriginalCopy(text);
-
-    }
-    if (comp) {
-
-        generateComplementCopy(text);
-
-
-    }
-
-    if (rev) {
-        generateRevCopy(text);
-
-    }
-
-    if (revComp) {
-
-        generateRevCompCopy(text);
-
-    }
-
-}
-
-function generateBlocks(text) {
-    //Add Length to String
+        //Add Length to String
         //let input = addLength();
         binOutput = textToBinary(text); //returns length + text
         //Add Encoding Information
@@ -92,12 +62,37 @@ function generateBlocks(text) {
 
         displayDNA.innerHTML = blockArr;
         errorCorrectBlock(corruptClone, corruptCloneTwo, corruptOriginal);
+    }
+
+    if (original) {
+
+        generateOriginalCopy();
+
+    }
+    if (comp) {
+
+        generateComplementCopy();
+
+
+    }
+
+    if (rev) {
+        generateRevCopy();
+
+    }
+
+    if (revComp) {
+
+        generateRevCompCopy();
+
+    }
+
 }
 
-function generateOriginalCopy(text) {
+function generateOriginalCopy() {
 
         //Add Length to String
-        let inputOG = addLength(text);
+        let inputOG = addLength();
         binOutput = textToBinary(inputOG); //returns length + text
 
         //Add Encoding Information
@@ -142,14 +137,13 @@ function generateOriginalCopy(text) {
         label2.textContent = "Original Copies: ";
         label3.textContent = "Original Copies: ";
         newPara.textContent = fin;
-
         similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
         sizeOfText.textContent = "Size: " + size.toFixed(2) + " KB";
-        
         document.getElementById("recoveredData").appendChild(label1);
         document.getElementById("recoveredData").appendChild(newPara);
         document.getElementById("recoveredData").appendChild(similarityText);
         document.getElementById("recoveredData").appendChild(sizeOfText);
+
 
         //Display Corrupt
         let corrupt = dnaToBinary(dnaStringError)
@@ -167,9 +161,9 @@ function generateOriginalCopy(text) {
         document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateComplementCopy(text) {
+function generateComplementCopy() {
     //Add Length to String
-    let inputComp = addLength(text);
+    let inputComp = addLength();
     binOutput = textToBinary(inputComp); //returns length + text
 
     //Add Encoding Information
@@ -241,9 +235,9 @@ function generateComplementCopy(text) {
     document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateRevCopy(text) {
+function generateRevCopy() {
      //Add Length to String
-     let input = addLength(text);
+     let input = addLength();
      binOutput = textToBinary(input); //returns length + text
 
      //Add Encoding Information
@@ -316,9 +310,9 @@ function generateRevCopy(text) {
      document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateRevCompCopy(text) {
+function generateRevCompCopy() {
       //Add Length to String
-      let input = addLength(text);
+      let input = addLength();
       binOutput = textToBinary(input); //returns length + text
 
       //Add Encoding Information
@@ -540,7 +534,7 @@ function removePrimers(convertedOutput) {
 /**
  * 
  */
-function addLength(text) {
+function addLength() {
     let padding = "00000000";
     let textLength = text.length;
     let noNums = textLength.toString().length;
@@ -889,7 +883,7 @@ function similarText(originalText, recoveredText) {
         }
     }
 
-    sum = sum / (originalText.length) * 100;
+    sum = sum / (text.length) * 100;
     return sum;
 }
 

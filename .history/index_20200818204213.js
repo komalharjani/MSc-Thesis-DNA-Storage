@@ -1,8 +1,6 @@
-var start = new Date();
-console.time("execution time");
 //let text = "How promotion excellent curiosity yet attempted happiness. Gay prosperous impression had conviction. For every delay death ask style. Me mean able my by in they. Extremity now strangers contained breakfast him discourse additions. Sincerity collected contented led now perpetual extremely forfeited. Two assure edward whence the was. Who worthy yet ten boy denote wonder. Weeks views her sight old tears sorry. Additions can suspected its concealed put furnished. Met the why particular devonshire decisively considered partiality. Certain it waiting no entered is. Passed her indeed uneasy shy polite appear denied. Oh less girl no walk. At he spot with five of view. Months on ye at by esteem desire warmth former. Sure that that way gave any fond now. His boy middleton sir nor engrossed affection excellent. Dissimilar compliment cultivated preference eat sufficient may. Well next door soon we mr he four. Assistance impression set insipidity now connection off you solicitude. Under as seems we me stuff those style at. Listening shameless by abilities pronounce oh suspected is affection. Next it draw in draw much bred. Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though. Attended of on stronger or mr pleasure. Rich four like real yet west get. Felicity in dwelling to drawings. His pleasure new steepest for reserved formerly disposed jennings. Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. Quiet ought match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on. Not him old music think his found enjoy merry. Listening acuteness dependent at or an. Apartments thoroughly unsatiable terminated sex how themselves. She are ten hours wrong walls stand early. Domestic perceive on an ladyship extended received do. Why jennings our whatever his learning gay perceive. Is against no he without subject. Bed connection unreserved preference partiality not unaffected. Years merit trees so think in hoped we as. On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any. Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness. Husbands see disposed surprise likewise humoured yet pleasure. Fifteen no inquiry cordial so resolve garrets as. Impression was estimating surrounded solicitude indulgence son shy. How promotion excellent curiosity yet attempted happiness. Gay prosperous impression had conviction. For every delay death ask style. Me mean able my by in they. Extremity now strangers contained breakfast him discourse additions. Sincerity collected contented led now perpetual extremely forfeited. Two assure edward whence the was. Who worthy yet ten boy denote wonder. Weeks views her sight old tears sorry. Additions can suspected its concealed put furnished. Met the why particular devonshire decisively considered partiality. Certain it waiting no entered is. Passed her indeed uneasy shy polite appear denied. Oh less girl no walk. At he spot with five of view. Months on ye at by esteem desire warmth former. Sure that that way gave any fond now. His boy middleton sir nor engrossed affection excellent. Dissimilar compliment cultivated preference eat sufficient may. Well next door soon we mr he four. Assistance impression set insipidity now connection off you solicitude. Under as seems we me stuff those style at. Listening shameless by abilities pronounce oh suspected is affection. Next it draw in draw much bred. Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though. Attended of on stronger or mr pleasure. Rich four like real yet west get. Felicity in dwelling to drawings. His pleasure new steepest for reserved formerly disposed jennings. Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. Quiet ought match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on. Not him old music think his found enjoy merry. Listening acuteness dependent at or an. Apartments thoroughly unsatiable terminated sex how themselves. She are ten hours wrong walls stand early. Domestic perceive on an ladyship extended received do. Why jennings our whatever his learning gay perceive. Is against no he without subject. Bed connection unreserved preference partiality not unaffected. Years merit trees so think in hoped we as. On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any. Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness. Husbands see disposed surprise likewise humoured yet pleasure. Fifteen no inquiry cordial so resolve garrets as. Impression was estimating surrounded solicitude indulgence son shy.How promotion excellent curiosity yet attempted happiness. Gay prosperous impression had conviction. For every delay death ask style. Me mean able my by in they. Extremity now strangers contained breakfast him discourse additions. Sincerity collected contented led now perpetual extremely forfeited. Two assure edward whence the was. Who worthy yet ten boy denote wonder. Weeks views her sight old tears sorry. Additions can suspected its concealed put furnished. Met the why particular devonshire decisively considered partiality. Certain it waiting no entered is. Passed her indeed uneasy shy polite appear denied. Oh less girl no walk. At he spot with five of view. Months on ye at by esteem desire warmth former. Sure that that way gave any fond now. His boy middleton sir nor engrossed affection excellent. Dissimilar compliment cultivated preference eat sufficient may. Well next door soon we mr he four. Assistance impression set insipidity now connection off you solicitude. Under as seems we me stuff those style at. Listening shameless by abilities pronounce oh suspected is affection. Next it draw in draw much bred. Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though. Attended of on stronger or mr pleasure. Rich four like real yet west get. Felicity in dwelling to drawings. His pleasure new steepest for reserved formerly disposed jennings. Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. Quiet ought match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on. Not him old music think his found enjoy merry. Listening acuteness dependent at or an. Apartments thoroughly unsatiable terminated sex how themselves. She are ten hours wrong walls stand early. Domestic perceive on an ladyship extended received do. Why jennings our whatever his learning gay perceive. Is against no he without subject. Bed connection unreserved preference partiality not unaffected. Years merit trees so think in hoped we as. On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any. Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness. Husbands see disposed surprise likewise humoured yet pleasure. Fifteen no inquiry cordial so resolve garrets as. Impression was estimating surrounded solicitude indulgence son shy. How promotion excellent curiosity yet attempted happiness. Gay prosperous impression had conviction. For every delay death ask style. Me mean able my by in they. Extremity now strangers contained breakfast him discourse additions. Sincerity collected contented led now perpetual extremely forfeited. Two assure edward whence the was. Who worthy yet ten boy denote wonder. Weeks views her sight old tears sorry. Additions can suspected its concealed put furnished. Met the why particular devonshire decisively considered partiality. Certain it waiting no entered is. Passed her indeed uneasy shy polite appear denied. Oh less girl no walk. At he spot with five of view. Months on ye at by esteem desire warmth former. Sure that that way gave any fond now. His boy middleton sir nor engrossed affection excellent. Dissimilar compliment cultivated preference eat sufficient may. Well next door soon we mr he four. Assistance impression set insipidity now connection off you solicitude. Under as seems we me stuff those style at. Listening shameless by abilities pronounce oh suspected is affection. Next it draw in draw much bred. Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though. Attended of on stronger or mr pleasure. Rich four like real yet west get. Felicity in dwelling to drawings. His pleasure new steepest for reserved formerly disposed jennings. Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. Quiet ought match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on. Not him old music think his found enjoy merry. Listening acuteness dependent at or an. Apartments thoroughly unsatiable terminated sex how themselves. She are ten hours wrong walls stand early. Domestic perceive on an ladyship extended received do. Why jennings our whatever his learning gay perceive. Is against no he without subject. Bed connection unreserved preference partiality not unaffected. Years merit trees so think in hoped we as. On am we offices expense thought. Its hence ten smile age means. Seven chief sight far point any. Of so high into easy. Dashwoods eagerness oh extensive as discourse sportsman frankness. Husbands see disposed surprise likewise humoured yet pleasure. Fifteen no inquiry cordial so resolve garrets as. Impression was estimating surrounded solicitude indulgence son shy. ";
 //let noErrors = 2;
-//let text = "Hello my name is Komal."
+let text = "Hello my name is Komal."
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
 let errorDisplay = document.getElementById("errorRateDisplay");
@@ -21,49 +19,17 @@ let binOutput;
  */
 function onConvert() {
 
-    let text = document.getElementById("inputText").value;
     let blocks = document.getElementById("fixed").checked;
     let revComp = document.getElementById("revComp").checked;
     let original = document.getElementById("original").checked;
     let comp = document.getElementById("comp").checked;
     let rev = document.getElementById("rev").checked;
-
     errorDisplay.innerHTML = "Specified Error Rate: " + errorRate + " Percent";
     let displayDNA = document.getElementById("dnaOutput");
 
     if (blocks) {
 
-        generateBlocks(text);
-        
-    }
-
-    if (original) {
-
-        generateOriginalCopy(text);
-
-    }
-    if (comp) {
-
-        generateComplementCopy(text);
-
-
-    }
-
-    if (rev) {
-        generateRevCopy(text);
-
-    }
-
-    if (revComp) {
-
-        generateRevCompCopy(text);
-
-    }
-
-}
-
-function generateBlocks(text) {
-    //Add Length to String
+        //Add Length to String
         //let input = addLength();
         binOutput = textToBinary(text); //returns length + text
         //Add Encoding Information
@@ -92,13 +58,17 @@ function generateBlocks(text) {
 
         displayDNA.innerHTML = blockArr;
         errorCorrectBlock(corruptClone, corruptCloneTwo, corruptOriginal);
-}
+    }
 
-function generateOriginalCopy(text) {
+    if (original) {
+
 
         //Add Length to String
-        let inputOG = addLength(text);
+        let inputOG = addLength();
         binOutput = textToBinary(inputOG); //returns length + text
+        console.log(binOutput.length);
+        let size = binOutput.length * 0.000001;
+        console.log(size);
 
         //Add Encoding Information
         let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
@@ -121,35 +91,17 @@ function generateOriginalCopy(text) {
         //    document.getElementById("recoveredData").innerHTML = "Original: " + fin;
         console.log("Original: " + fin);
 
-
-        //Calculate Similarity
-        let similarity = similarText(text, fin);
-        console.log(similarity);
-
-        //Calculate Size
-        console.log(binOutput.length);
-        let size = binOutput.length * 0.000125;
-        console.log(size);
-
         //Display Result
         let newPara = document.createElement('p');
-        let label1 = document.createElement('h2');
-        let label2 = document.createElement('h3');
-        let label3 = document.createElement('h3');
-        let similarityText = document.createElement('h3');
-        let sizeOfText = document.createElement('h3');
+        let label1 = document.createElement('p');
+        let label2 = document.createElement('p');
+        let label3 = document.createElement('p');
         label1.textContent = "Original Copies: ";
         label2.textContent = "Original Copies: ";
         label3.textContent = "Original Copies: ";
         newPara.textContent = fin;
-
-        similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
-        sizeOfText.textContent = "Size: " + size.toFixed(2) + " KB";
-        
         document.getElementById("recoveredData").appendChild(label1);
         document.getElementById("recoveredData").appendChild(newPara);
-        document.getElementById("recoveredData").appendChild(similarityText);
-        document.getElementById("recoveredData").appendChild(sizeOfText);
 
         //Display Corrupt
         let corrupt = dnaToBinary(dnaStringError)
@@ -165,230 +117,195 @@ function generateOriginalCopy(text) {
         dnaOutput.textContent = addedPrimers;
         document.getElementById("dnaOutput").appendChild(label3);
         document.getElementById("dnaOutput").appendChild(dnaOutput);
-}
 
-function generateComplementCopy(text) {
-    //Add Length to String
-    let inputComp = addLength(text);
-    binOutput = textToBinary(inputComp); //returns length + text
+        let similarity = similarText(text, fin);
+        console.log(similarity.toFixed(2));
 
-    //Add Encoding Information
-    let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
-    console.log(dnaStringOutput);
-    //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
+    }
+    if (comp) {
 
-    //Add Primers - for Blocks
-    let addedPrimers = addPrimers(dnaStringOutput);
-    let compCloneOne = getComplement(addedPrimers).join(""); //copy one
-    let compCloneTwo = getComplement(addedPrimers).join("");
+        //Add Length to String
+        let inputComp = addLength();
+        binOutput = textToBinary(inputComp); //returns length + text
 
-    //ERROR SIMULATOR
-    let cloneError = errorSimulator(compCloneOne);
-    let cloneTwoError = errorSimulator(compCloneTwo);
-    let dnaStringError = errorSimulator(addedPrimers);
+        //Add Encoding Information
+        let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
+        console.log(dnaStringOutput);
+        //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
 
-    //DECODE COMPLEMENT
-    let decodeCompOne = getComplement(cloneError);
-    let decodeCompTwo = getComplement(cloneTwoError);
+        //Add Primers - for Blocks
+        let addedPrimers = addPrimers(dnaStringOutput);
+        let compCloneOne = getComplement(addedPrimers).join(""); //copy one
+        let compCloneTwo = getComplement(addedPrimers).join("");
 
-    //ERROR CORRECT WITH REV COMPLEMENT
-    let decoded = errorCorrect(dnaStringError, decodeCompOne, decodeCompTwo);
-    let fin = binaryToText(decoded);
-    // document.getElementById("recoveredData").append = "Complement: " + fin;
-    console.log("Complement: " + fin);
+        //ERROR SIMULATOR
+        let cloneError = errorSimulator(compCloneOne);
+        let cloneTwoError = errorSimulator(compCloneTwo);
+        let dnaStringError = errorSimulator(addedPrimers);
 
-    //Calculate Similarity
-    let similarity = similarText(text, fin);
-    console.log(similarity);
+        //DECODE COMPLEMENT
+        let decodeCompOne = getComplement(cloneError);
+        let decodeCompTwo = getComplement(cloneTwoError);
 
-    //Calculate Size
-    console.log(binOutput.length);
-    let size = binOutput.length * 0.000125;
-    console.log(size);
+        //ERROR CORRECT WITH REV COMPLEMENT
+        let decoded = errorCorrect(dnaStringError, decodeCompOne, decodeCompTwo);
+        let fin = binaryToText(decoded);
+        // document.getElementById("recoveredData").append = "Complement: " + fin;
+        console.log("Complement: " + fin);
 
-    //Display Result
-    let newPara = document.createElement('p');
-    let label1 = document.createElement('h2');
-    let label2 = document.createElement('h3');
-    let label3 = document.createElement('h3');
-    let similarityText = document.createElement('h3');
-    let sizeOfText = document.createElement('h3');
-    label1.textContent = "Complement Copies: ";
-    label2.textContent = "Complement Copies: ";
-    label3.textContent = "Complement Copies: ";
-    newPara.textContent = fin;
-    similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
-    sizeOfText.textContent = "Size: " + size.toFixed(2) + " KB";
-    document.getElementById("recoveredData").appendChild(label1);
-    document.getElementById("recoveredData").appendChild(newPara);
-    document.getElementById("recoveredData").appendChild(similarityText);
-    document.getElementById("recoveredData").appendChild(sizeOfText);
+        //Display Result
+        let newPara = document.createElement('p');
+        let label1 = document.createElement('p');
+        let label2 = document.createElement('p');
+        let label3 = document.createElement('p');
+        label1.textContent = "Complement Copies: ";
+        label2.textContent = "Complement Copies: ";
+        label3.textContent = "Complement Copies: ";
+        newPara.textContent = fin;
+        document.getElementById("recoveredData").appendChild(label1);
+        document.getElementById("recoveredData").appendChild(newPara);
 
+        //Display Corrupt
+        let corrupt = dnaToBinary(dnaStringError)
+        decodeCorrupt = decode(corrupt);
+        let out = lengthToText(decodeCorrupt);
+        let corruptOutput = document.createElement('p');
+        corruptOutput.textContent = out;
+        document.getElementById("corruptData").appendChild(label2);
+        document.getElementById("corruptData").appendChild(corruptOutput);
 
-    //Display Corrupt
-    let corrupt = dnaToBinary(dnaStringError)
-    decodeCorrupt = decode(corrupt);
-    let out = lengthToText(decodeCorrupt);
-    let corruptOutput = document.createElement('p');
-    corruptOutput.textContent = out;
-    document.getElementById("corruptData").appendChild(label2);
-    document.getElementById("corruptData").appendChild(corruptOutput);
+        //Display DNA
+        let dnaOutput = document.createElement('p');
+        dnaOutput.textContent = addedPrimers;
+        document.getElementById("dnaOutput").appendChild(label3);
+        document.getElementById("dnaOutput").appendChild(dnaOutput);
 
-    //Display DNA
-    let dnaOutput = document.createElement('p');
-    dnaOutput.textContent = addedPrimers;
-    document.getElementById("dnaOutput").appendChild(label3);
-    document.getElementById("dnaOutput").appendChild(dnaOutput);
-}
+        let similarity = similarText(text, fin);
+        console.log(similarity.toFixed(2));
+    }
 
-function generateRevCopy(text) {
-     //Add Length to String
-     let input = addLength(text);
-     binOutput = textToBinary(input); //returns length + text
+    if (rev) {
 
-     //Add Encoding Information
-     let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
-     console.log(dnaStringOutput);
-     //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
+        //Add Length to String
+        let input = addLength();
+        binOutput = textToBinary(input); //returns length + text
+
+        //Add Encoding Information
+        let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
+        console.log(dnaStringOutput);
+        //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
 
 
-     //Add Primers - for Blocks
-     let addedPrimersOrg = addPrimers(dnaStringOutput);
-     let addedPrimersRev = addPrimers(dnaStringOutput.reverse());
-     let clone = addedPrimersRev.slice();
+        //Add Primers - for Blocks
+        let addedPrimersOrg = addPrimers(dnaStringOutput);
+        let addedPrimersRev = addPrimers(dnaStringOutput.reverse());
+        let clone = addedPrimersRev.slice();
 
-     //ERROR SIMULATOR
-     let cloneError = errorSimulator(addedPrimersRev);
-     let cloneTwoError = errorSimulator(clone);
-     let dnaStringError = errorSimulator(addedPrimersOrg);
+        //ERROR SIMULATOR
+        let cloneError = errorSimulator(addedPrimersRev);
+        let cloneTwoError = errorSimulator(clone);
+        let dnaStringError = errorSimulator(addedPrimersOrg);
 
-     //REVERSE BACK
-     cloneError = cloneError.reverse();
-     cloneTwoError = cloneTwoError.reverse();
+        //REVERSE BACK
+        cloneError = cloneError.reverse();
+        cloneTwoError = cloneTwoError.reverse();
 
-     //ERROR CORRECT WITH REV COMPLEMENT
-     let decoded = errorCorrect(dnaStringError, cloneError, cloneTwoError);
-     let fin = binaryToText(decoded);
-     // document.getElementById("recoveredData").innerHTML = "Reversed: " + fin;
-     console.log("Reversed: " + fin);
+        //ERROR CORRECT WITH REV COMPLEMENT
+        let decoded = errorCorrect(dnaStringError, cloneError, cloneTwoError);
+        let fin = binaryToText(decoded);
+        // document.getElementById("recoveredData").innerHTML = "Reversed: " + fin;
+        console.log("Reversed: " + fin);
 
-     //Calculate Similarity
-     let similarity = similarText(text, fin);
-     console.log(similarity);
+        //Display Result
+        let newPara = document.createElement('p');
+        let label1 = document.createElement('p');
+        let label2 = document.createElement('p');
+        let label3 = document.createElement('p');
+        label1.textContent = "Reverse Copies: ";
+        label2.textContent = "Reverse Copies: ";
+        label3.textContent = "Reverse Copies: ";
+        newPara.textContent = fin;
+        document.getElementById("recoveredData").appendChild(label1);
+        document.getElementById("recoveredData").appendChild(newPara);
 
-     //Calculate Size
-     console.log(binOutput.length);
-     let size = binOutput.length * 0.000125;
-     console.log(size);
+        //Display Corrupt
+        let corrupt = dnaToBinary(dnaStringError)
+        decodeCorrupt = decode(corrupt);
+        let out = lengthToText(decodeCorrupt);
+        let corruptOutput = document.createElement('p');
+        corruptOutput.textContent = out;
+        document.getElementById("corruptData").appendChild(label2);
+        document.getElementById("corruptData").appendChild(corruptOutput);
 
-     //Display Result
-     let newPara = document.createElement('p');
-     let label1 = document.createElement('h2');
-     let label2 = document.createElement('h3');
-     let label3 = document.createElement('h3');
-     let similarityText = document.createElement('h3');
-     let sizeOfText = document.createElement('h3');
-     label1.textContent = "Reverse Copies: ";
-     label2.textContent = "Reverse Copies: ";
-     label3.textContent = "Reverse Copies: ";
-     newPara.textContent = fin;
-     similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
-     sizeOfText.textContent = "Size: " + size.toFixed(2) + " KB";
-     document.getElementById("recoveredData").appendChild(label1);
-     document.getElementById("recoveredData").appendChild(newPara);
-     document.getElementById("recoveredData").appendChild(similarityText);
-     document.getElementById("recoveredData").appendChild(sizeOfText);
+        //Display DNA
+        let dnaOutput = document.createElement('p');
+        dnaOutput.textContent = addedPrimers;
+        document.getElementById("dnaOutput").appendChild(label3);
+        document.getElementById("dnaOutput").appendChild(dnaOutput);
 
+        let similarity = similarText(text, fin);
+        console.log(similarity.toFixed(2));
 
-     //Display Corrupt
-     let corrupt = dnaToBinary(dnaStringError)
-     decodeCorrupt = decode(corrupt);
-     let out = lengthToText(decodeCorrupt);
-     let corruptOutput = document.createElement('p');
-     corruptOutput.textContent = out;
-     document.getElementById("corruptData").appendChild(label2);
-     document.getElementById("corruptData").appendChild(corruptOutput);
+    }
 
-     //Display DNA
-     let dnaOutput = document.createElement('p');
-     dnaOutput.textContent = addedPrimersRev;
-     document.getElementById("dnaOutput").appendChild(label3);
-     document.getElementById("dnaOutput").appendChild(dnaOutput);
-}
+    if (revComp) {
 
-function generateRevCompCopy(text) {
-      //Add Length to String
-      let input = addLength(text);
-      binOutput = textToBinary(input); //returns length + text
+        //Add Length to String
+        let input = addLength();
+        binOutput = textToBinary(input); //returns length + text
 
-      //Add Encoding Information
-      let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
-      console.log(dnaStringOutput);
-      //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
+        //Add Encoding Information
+        let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
+        console.log(dnaStringOutput);
+        //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
 
 
-      //Add Primers - for Blocks
-      let addedPrimers = addPrimers(dnaStringOutput);
-      let revAddedPrimers = addPrimers(dnaStringOutput.reverse());
-      let compCloneOne = getComplement(revAddedPrimers).join(""); //copy one
-      let compCloneTwo = getComplement(revAddedPrimers).join("");
+        //Add Primers - for Blocks
+        let addedPrimers = addPrimers(dnaStringOutput);
+        let revAddedPrimers = addPrimers(dnaStringOutput.reverse());
+        let compCloneOne = getComplement(revAddedPrimers).join(""); //copy one
+        let compCloneTwo = getComplement(revAddedPrimers).join("");
 
-      //ERROR SIMULATOR
-      let cloneError = errorSimulator(compCloneOne);
-      let cloneTwoError = errorSimulator(compCloneTwo);
-      let dnaStringError = errorSimulator(addedPrimers);
+        //ERROR SIMULATOR
+        let cloneError = errorSimulator(compCloneOne);
+        let cloneTwoError = errorSimulator(compCloneTwo);
+        let dnaStringError = errorSimulator(addedPrimers);
 
-      //DECODE COMPLEMENT
-      let decodeCompOne = getComplement(cloneError).reverse();
-      let decodeCompTwo = getComplement(cloneTwoError).reverse();
+        //DECODE COMPLEMENT
+        let decodeCompOne = getComplement(cloneError).reverse();
+        let decodeCompTwo = getComplement(cloneTwoError).reverse();
 
-      //ERROR CORRECT WITH REV COMPLEMENT
-      let decoded = errorCorrect(dnaStringError, decodeCompOne, decodeCompTwo);
-      let fin = binaryToText(decoded);
+        //ERROR CORRECT WITH REV COMPLEMENT
+        let decoded = errorCorrect(dnaStringError, decodeCompOne, decodeCompTwo);
+        let fin = binaryToText(decoded);
 
-      //Calculate Similarity
-      let similarity = similarText(text, fin);
-      console.log(similarity);
+        //display fin
 
-      //Calculate Size
-      console.log(binOutput.length);
-      let size = binOutput.length * 0.000125;
-      console.log(size);
+        let newPara = document.createElement('p');
+        let newLabel = document.createElement('label');
+        newLabel.textContent = "Reverse Complement Copies: ";
+        document.getElementById("recoveredData").appendChild(newLabel);
+        newPara.textContent = fin;
+        document.getElementById("recoveredData").appendChild(newPara);
+        console.log("Reverse Complement: " + fin);
 
-      //Display Result
-      let newPara = document.createElement('p');
-      let label1 = document.createElement('h2');
-      let label2 = document.createElement('h3');
-      let label3 = document.createElement('h3');
-      let similarityText = document.createElement('h3');
-      let sizeOfText = document.createElement('h3');
-      label1.textContent = "Reverse Complement Copies: ";
-      label2.textContent = "Reverse Complement Copies: ";
-      label3.textContent = "Reverse Complement Copies: ";
-      newPara.textContent = fin;
-      similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
-      sizeOfText.textContent = "Size: " + size.toFixed(2) + " KB";
-      document.getElementById("recoveredData").appendChild(label1);
-      document.getElementById("recoveredData").appendChild(newPara);
-      document.getElementById("recoveredData").appendChild(similarityText);
-      document.getElementById("recoveredData").appendChild(sizeOfText);
+        //Display Corrupt
+        let corrupt = dnaToBinary(dnaStringError)
+        decodeCorrupt = decode(corrupt);
+        let out = lengthToText(decodeCorrupt);
+        let corruptOutput = document.createElement('p');
+        corruptOutput.textContent = out;
+        document.getElementById("corruptData").appendChild(newLabel);
+        document.getElementById("corruptData").appendChild(corruptOutput);
 
+        //Display DNA
+        let dnaOutput = document.createElement('p');
+        dnaOutput.textContent = compCloneOne;
+        document.getElementById("dnaOutput").appendChild(newLabel);
+        document.getElementById("dnaOutput").appendChild(dnaOutput);
 
-      //Display Corrupt
-      let corrupt = dnaToBinary(dnaStringError)
-      decodeCorrupt = decode(corrupt);
-      let out = lengthToText(decodeCorrupt);
-      let corruptOutput = document.createElement('p');
-      corruptOutput.textContent = out;
-      document.getElementById("corruptData").appendChild(label2);
-      document.getElementById("corruptData").appendChild(corruptOutput);
+    }
 
-      //Display DNA
-      let dnaOutput = document.createElement('p');
-      dnaOutput.textContent = revAddedPrimers;
-      document.getElementById("dnaOutput").appendChild(label3);
-      document.getElementById("dnaOutput").appendChild(dnaOutput);
-    
 }
 
 function addBlocks(dnaArray, n) {
@@ -540,7 +457,7 @@ function removePrimers(convertedOutput) {
 /**
  * 
  */
-function addLength(text) {
+function addLength() {
     let padding = "00000000";
     let textLength = text.length;
     let noNums = textLength.toString().length;
@@ -628,6 +545,31 @@ function errorSimulator(dnaString) { //does this have to deal with a string?
             }
         }
     }
+    // for (let i = 0; i < noErrors; i++) { //for error rate
+    //     // let randomIndex = (Math.floor(Math.random() * dnaArray.length - min + 1) + min) + 1; //generate random index
+    //     // console.log(randomIndex);
+    //     // //deletion error
+    //     // if(del) {
+    //     //     dnaArray.splice(randomIndex, 1);
+    //     //     console.log(dnaArray);
+    //     // }
+
+
+    //     //insertion error
+    //     let insert = document.getElementById("insert").checked;
+    //     if(insert) {
+    //         let randomElement = subError[Math.floor(Math.random() * subError.length)];
+    //         dnaArray.splice(randomIndex,0,randomElement);
+    //         console.log(dnaArray);
+    //     }
+    //     //substitution error
+    //     let sub = document.getElementById("sub").checked;
+    //     if(sub) {
+    //         let randomElement = subError[Math.floor(Math.random() * subError.length)];
+    //         dnaArray.splice(randomIndex,1,randomElement);
+    //         console.log(dnaArray);
+    //     }
+    // }
     return dnaArray;
 }
 
@@ -689,8 +631,6 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo, len) {
             else {
                 majority = "X";
                 cloneOne.splice(indexToInsert, 0, majority);
-                errorDNA.splice(indexToInsert, 0, majority);
-                cloneTwo.splice(indexToInsert, 0, majority);
             }
         }
         missing = [];
@@ -846,33 +786,38 @@ function displayResults() {
     //6. Save as File
 }
 
-//CITE
-function similarText(originalText, recoveredText) {
-    if (originalText === null || recoveredText === null || typeof originalText === 'undefined' || typeof recoveredText === 'undefined') {
+function similarText(first, second) {
+    // http://jsphp.co/jsphp/fn/view/similar_text
+    // +   original by: Rafał Kukawski (http://blog.kukawski.pl)
+    // +   bugfixed by: Chris McMacken
+    // *     example 1: similar_text('Hello World!', 'Hello phpjs!');
+    // *     returns 1: 7
+    // *     example 2: similar_text('Hello World!', null);
+    // *     returns 2: 0
+    if (first === null || second === null || typeof first === 'undefined' || typeof second === 'undefined') {
         return 0;
     }
 
-    originalText += '';
-    recoveredText += '';
+    first += '';
+    second += '';
 
-    let pos1 = 0;
-    let pos2 = 0;
-    let max = 0;
-    let OGLength = originalText.length;
-    let recoveredLength = recoveredText.length;
-    let k;
-    let sum;
+    var pos1 = 0,
+        pos2 = 0,
+        max = 0,
+        firstLength = first.length,
+        secondLength = second.length,
+        p, q, l, sum;
 
     max = 0;
 
-    for (let i = 0; i < OGLength; i++) {
-        for (let j = 0; j < recoveredLength; j++) {
-            for (k = 0;
-                (i + k < OGLength) && (j + k < recoveredLength) && (originalText.charAt(i + k) === recoveredText.charAt(j + k)); k++);
-            if (k > max) {
-                max = k;
-                pos1 = i;
-                pos2 = j;
+    for (p = 0; p < firstLength; p++) {
+        for (q = 0; q < secondLength; q++) {
+            for (l = 0;
+                (p + l < firstLength) && (q + l < secondLength) && (first.charAt(p + l) === second.charAt(q + l)); l++);
+            if (l > max) {
+                max = l;
+                pos1 = p;
+                pos2 = q;
             }
         }
     }
@@ -881,20 +826,14 @@ function similarText(originalText, recoveredText) {
 
     if (sum) {
         if (pos1 && pos2) {
-            sum += this.similarText(originalText.substr(0, pos2), recoveredText.substr(0, pos2));
+            sum += this.similarText(first.substr(0, pos2), second.substr(0, pos2));
         }
 
-        if ((pos1 + max < OGLength) && (pos2 + max < recoveredLength)) {
-            sum += this.similarText(originalText.substr(pos1 + max, OGLength - pos1 - max), recoveredText.substr(pos2 + max, recoveredLength - pos2 - max));
+        if ((pos1 + max < firstLength) && (pos2 + max < secondLength)) {
+            sum += this.similarText(first.substr(pos1 + max, firstLength - pos1 - max), second.substr(pos2 + max, secondLength - pos2 - max));
         }
     }
 
-    sum = sum / (originalText.length) * 100;
+    sum = sum / (text.length) * 100;
     return sum;
 }
-
-
-var time = new Date() - start; //print on screen HTML
-console.log(time);
-
-console.timeEnd("execution time");

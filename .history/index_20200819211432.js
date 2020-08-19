@@ -33,37 +33,7 @@ function onConvert() {
 
     if (blocks) {
 
-        generateBlocks(text);
-        
-    }
-
-    if (original) {
-
-        generateOriginalCopy(text);
-
-    }
-    if (comp) {
-
-        generateComplementCopy(text);
-
-
-    }
-
-    if (rev) {
-        generateRevCopy(text);
-
-    }
-
-    if (revComp) {
-
-        generateRevCompCopy(text);
-
-    }
-
-}
-
-function generateBlocks(text) {
-    //Add Length to String
+        //Add Length to String
         //let input = addLength();
         binOutput = textToBinary(text); //returns length + text
         //Add Encoding Information
@@ -92,6 +62,31 @@ function generateBlocks(text) {
 
         displayDNA.innerHTML = blockArr;
         errorCorrectBlock(corruptClone, corruptCloneTwo, corruptOriginal);
+    }
+
+    if (original) {
+
+        generateOriginalCopy(text);
+
+    }
+    if (comp) {
+
+        generateComplementCopy();
+
+
+    }
+
+    if (rev) {
+        generateRevCopy();
+
+    }
+
+    if (revComp) {
+
+        generateRevCompCopy();
+
+    }
+
 }
 
 function generateOriginalCopy(text) {
@@ -167,9 +162,9 @@ function generateOriginalCopy(text) {
         document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateComplementCopy(text) {
+function generateComplementCopy() {
     //Add Length to String
-    let inputComp = addLength(text);
+    let inputComp = addLength();
     binOutput = textToBinary(inputComp); //returns length + text
 
     //Add Encoding Information
@@ -241,9 +236,9 @@ function generateComplementCopy(text) {
     document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateRevCopy(text) {
+function generateRevCopy() {
      //Add Length to String
-     let input = addLength(text);
+     let input = addLength();
      binOutput = textToBinary(input); //returns length + text
 
      //Add Encoding Information
@@ -316,9 +311,9 @@ function generateRevCopy(text) {
      document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateRevCompCopy(text) {
+function generateRevCompCopy() {
       //Add Length to String
-      let input = addLength(text);
+      let input = addLength();
       binOutput = textToBinary(input); //returns length + text
 
       //Add Encoding Information

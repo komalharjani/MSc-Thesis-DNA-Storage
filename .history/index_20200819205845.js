@@ -21,7 +21,6 @@ let binOutput;
  */
 function onConvert() {
 
-    let text = document.getElementById("inputText").value;
     let blocks = document.getElementById("fixed").checked;
     let revComp = document.getElementById("revComp").checked;
     let original = document.getElementById("original").checked;
@@ -33,37 +32,7 @@ function onConvert() {
 
     if (blocks) {
 
-        generateBlocks(text);
-        
-    }
-
-    if (original) {
-
-        generateOriginalCopy(text);
-
-    }
-    if (comp) {
-
-        generateComplementCopy(text);
-
-
-    }
-
-    if (rev) {
-        generateRevCopy(text);
-
-    }
-
-    if (revComp) {
-
-        generateRevCompCopy(text);
-
-    }
-
-}
-
-function generateBlocks(text) {
-    //Add Length to String
+        //Add Length to String
         //let input = addLength();
         binOutput = textToBinary(text); //returns length + text
         //Add Encoding Information
@@ -92,12 +61,37 @@ function generateBlocks(text) {
 
         displayDNA.innerHTML = blockArr;
         errorCorrectBlock(corruptClone, corruptCloneTwo, corruptOriginal);
+    }
+
+    if (original) {
+
+        generateOriginalCopy();
+
+    }
+    if (comp) {
+
+        generateComplementCopy();
+
+
+    }
+
+    if (rev) {
+        generateRevCopy();
+
+    }
+
+    if (revComp) {
+
+        generateRevCompCopy();
+
+    }
+
 }
 
-function generateOriginalCopy(text) {
+function generateOriginalCopy() {
 
         //Add Length to String
-        let inputOG = addLength(text);
+        let inputOG = addLength();
         binOutput = textToBinary(inputOG); //returns length + text
 
         //Add Encoding Information
@@ -142,14 +136,13 @@ function generateOriginalCopy(text) {
         label2.textContent = "Original Copies: ";
         label3.textContent = "Original Copies: ";
         newPara.textContent = fin;
-
         similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
         sizeOfText.textContent = "Size: " + size.toFixed(2) + " KB";
-        
         document.getElementById("recoveredData").appendChild(label1);
         document.getElementById("recoveredData").appendChild(newPara);
         document.getElementById("recoveredData").appendChild(similarityText);
         document.getElementById("recoveredData").appendChild(sizeOfText);
+
 
         //Display Corrupt
         let corrupt = dnaToBinary(dnaStringError)
@@ -167,9 +160,9 @@ function generateOriginalCopy(text) {
         document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateComplementCopy(text) {
+function generateComplementCopy() {
     //Add Length to String
-    let inputComp = addLength(text);
+    let inputComp = addLength();
     binOutput = textToBinary(inputComp); //returns length + text
 
     //Add Encoding Information
@@ -241,9 +234,9 @@ function generateComplementCopy(text) {
     document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateRevCopy(text) {
+function generateRevCopy() {
      //Add Length to String
-     let input = addLength(text);
+     let input = addLength();
      binOutput = textToBinary(input); //returns length + text
 
      //Add Encoding Information
@@ -316,9 +309,9 @@ function generateRevCopy(text) {
      document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateRevCompCopy(text) {
+function generateRevCompCopy() {
       //Add Length to String
-      let input = addLength(text);
+      let input = addLength();
       binOutput = textToBinary(input); //returns length + text
 
       //Add Encoding Information
@@ -540,7 +533,7 @@ function removePrimers(convertedOutput) {
 /**
  * 
  */
-function addLength(text) {
+function addLength() {
     let padding = "00000000";
     let textLength = text.length;
     let noNums = textLength.toString().length;
@@ -889,7 +882,7 @@ function similarText(originalText, recoveredText) {
         }
     }
 
-    sum = sum / (originalText.length) * 100;
+    sum = sum / (text.length) * 100;
     return sum;
 }
 

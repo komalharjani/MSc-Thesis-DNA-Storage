@@ -3,12 +3,12 @@ console.log(text.length);
 //let noErrors = 2;
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
-let errorRate;
+let noErrors;
 
 output.innerHTML = slider.value; // Display the default slider value
 slider.oninput = function() {
     output.innerHTML = this.value;
-    errorRate = this.value;
+    noErrors = this.value;
   } 
 let binOutput;
 
@@ -18,7 +18,7 @@ let binOutput;
  */
 function onConvert() {
 
-    console.log(errorRate);
+    console.log(noErrors);
     //Add Length
     let input = addLength();
     binOutput = textToBinary(input);
@@ -314,7 +314,6 @@ function errorSimulator(dnaString) { //does this have to deal with a string?
             let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
             for (let j = 0; j < noRunsInsert; j++) {
                 let randomElement = subError[Math.floor(Math.random() * subError.length)];
-                
                 dnaArray.splice(randomIndex, 0, randomElement);
                 randomIndex++;
             }

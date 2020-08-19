@@ -62,38 +62,6 @@ function onConvert() {
 
 }
 
-function generateBlocks(text) {
-    //Add Length to String
-        //let input = addLength();
-        binOutput = textToBinary(text); //returns length + text
-        //Add Encoding Information
-        let dnaArray = binaryToDNA(binOutput); //convert to DNA
-        console.log(dnaArray);
-        //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
-
-        //STORE IN DNA?
-        let lengthOfBlock = 5;
-
-        console.log(dnaArray);
-        let addBlock = addBlocks(dnaArray, lengthOfBlock);
-        let blockArr = Array.from(addBlock).join("");
-        console.log(blockArr);
-        console.log(addBlock);
-        //let primedOriginal = addPrimers(blockArr);
-
-        //Create Clones
-        let cloneOneString = blockArr.slice();
-        let cloneTwoString = blockArr.slice();
-
-        //Error Simulator
-        let corruptClone = errorSimulator(cloneOneString);
-        let corruptCloneTwo = errorSimulator(cloneTwoString);
-        let corruptOriginal = errorSimulator(blockArr);
-
-        displayDNA.innerHTML = blockArr;
-        errorCorrectBlock(corruptClone, corruptCloneTwo, corruptOriginal);
-}
-
 function generateOriginalCopy(text) {
 
         //Add Length to String
@@ -167,7 +135,7 @@ function generateOriginalCopy(text) {
         document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateComplementCopy(text) {
+function generateComplementCopy() {
     //Add Length to String
     let inputComp = addLength(text);
     binOutput = textToBinary(inputComp); //returns length + text
@@ -241,7 +209,7 @@ function generateComplementCopy(text) {
     document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateRevCopy(text) {
+function generateRevCopy() {
      //Add Length to String
      let input = addLength(text);
      binOutput = textToBinary(input); //returns length + text
@@ -316,7 +284,7 @@ function generateRevCopy(text) {
      document.getElementById("dnaOutput").appendChild(dnaOutput);
 }
 
-function generateRevCompCopy(text) {
+function generateRevCompCopy() {
       //Add Length to String
       let input = addLength(text);
       binOutput = textToBinary(input); //returns length + text

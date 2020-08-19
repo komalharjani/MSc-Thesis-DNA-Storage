@@ -3,12 +3,12 @@ console.log(text.length);
 //let noErrors = 2;
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
-let errorRate;
+let noErrors;
 
 output.innerHTML = slider.value; // Display the default slider value
 slider.oninput = function() {
     output.innerHTML = this.value;
-    errorRate = this.value;
+    noErrors = this.value;
   } 
 let binOutput;
 
@@ -18,7 +18,7 @@ let binOutput;
  */
 function onConvert() {
 
-    console.log(errorRate);
+    console.log(noErrors);
     //Add Length
     let input = addLength();
     binOutput = textToBinary(input);
@@ -217,281 +217,46 @@ function addComplement(dnaArray) {
  * Attempting to mimic sequencing and synthesis errors in practice 
  * @param {*} dnaString 
  */
-// function errorSimulator(dnaString) { //does this have to deal with a string?
-//     console.log(noErrors);
-//     let errorRate = Math.round(dnaString.length * noErrors / 1000); //error rate user input
-//     dnaArray = dnaString.split("");
-//     console.log(dnaArray);
-//     let dispersed = document.getElementById("dispersed").checked;
-//     let endDNA = document.getAnimations("endDNA")
-//     let min;
-//     if (dispersed) {
-//         min = 0; //change if errors should be concentrated at end
-//         console.log(min);
-//     }
-//     if(endDNA) {
-//         min = dnaString.length - 200; 
-//         console.log(min);
-//     }
-
-//     for (let i = 0; i < errorRate; i++) { //for error rate
-//         let randomIndex = (Math.floor(Math.random() * dnaArray.length - min + 1) + min) + 1; //generate random index
-//         console.log(randomIndex);
-//         //deletion error
-//         let del = document.getElementById("delete").checked;
-//         if(del) {
-//             dnaArray.splice(randomIndex, 1);
-//             console.log(dnaArray);
-//         }
-//         //insertion error
-//         let insert = document.getElementById("insert").checked;
-//         if(insert) {
-//             dnaArray.splice(randomIndex, 0,"G");
-//             console.log(dnaArray);
-//         }
-//         //substitution error
-//         let sub = document.getElementById("sub").checked;
-//         if(sub) {
-//             dnaArray.splice(randomIndex,1, 'A');
-//             console.log(dnaArray);
-//         }
-//     }
-//     return dnaArray;
-// }
-
 function errorSimulator(dnaString) { //does this have to deal with a string?
-
+    console.log(noErrors);
+    let errorRate = Math.round(dnaString.length * noErrors / 1000); //error rate user input
+    dnaArray = dnaString.split("");
+    console.log(dnaArray);
     let dispersed = document.getElementById("dispersed").checked;
-    let endDNA = document.getAnimations("endDNA").checked;
-
+    let endDNA = document.getAnimations("endDNA")
     let min;
     if (dispersed) {
         min = 0; //change if errors should be concentrated at end
+        console.log(min);
     }
-    if (endDNA) {
-        min = dnaString.length - (dnaString.length * 0.1); //ten percent
-        // console.log(min);
+    if(endDNA) {
+        min = dnaString.length - 200; 
+        console.log(min);
     }
 
-    let noErrors = Math.round(dnaString.length * errorRate / 100); //error rate user input
-
-    console.log(noErrors);
-    dnaArray = dnaString.split("");
-    let subError = ["A", "G", "T", "C"];
-
-    let del = document.getElementById("delete").checked;
-    let insert = document.getElementById("insert").checked;
-    let sub = document.getElementById("sub").checked;
-
-    //This is how many times to run the loop
-    let noInsertLoop;
-    let noDeleteLoop;
-    let noSubLoop;
-
-    //User Specified
-    let noRunsInsert = document.getElementById("insertChars").value;
-    console.log(noRunsInsert);
-    let noRunsDelete = document.getElementById("deleteChars").value;
-    let noRunsSub = document.getElementById("subChars").value;
-
-    //Split Equally
-    if (del && insert && sub) {
-        noInsertLoop = Math.round(noErrors / 3 / noRunsInsert);
-        noDeleteLoop = Math.round(noErrors / 3 / noRunsDelete);
-        noSubLoop = Math.round(noErrors / 3 / noRunsSub);
-
-        console.log(noErrors);
-        console.log(noDeleteLoop);
-        console.log(noInsertLoop);
-        console.log(noSubLoop);
-
-        for (let i = 0; i < noDeleteLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            dnaArray.splice(randomIndex, noRunsDelete);
+    for (let i = 0; i < errorRate; i++) { //for error rate
+        let randomIndex = (Math.floor(Math.random() * dnaArray.length - min + 1) + min) + 1; //generate random index
+        console.log(randomIndex);
+        //deletion error
+        let del = document.getElementById("delete").checked;
+        if(del) {
+            dnaArray.splice(randomIndex, 1);
+            console.log(dnaArray);
         }
-
-        for (let i = 0; i < noInsertLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            for (let j = 0; j < noRunsInsert; j++) {
-                let randomElement = subError[Math.floor(Math.random() * subError.length)];
-                
-                dnaArray.splice(randomIndex, 0, randomElement);
-                randomIndex++;
-            }
+        //insertion error
+        let insert = document.getElementById("insert").checked;
+        if(insert) {
+            dnaArray.splice(randomIndex, 0,"G");
+            console.log(dnaArray);
         }
-
-        for (let i = 0; i < noSubLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            for (let j = 0; j < noRunsSub; j++) {
-                let randomElement = subError[Math.floor(Math.random() * subError.length)];
-                dnaArray.splice(randomIndex, 1, randomElement);
-                randomIndex++;
-            }
+        //substitution error
+        let sub = document.getElementById("sub").checked;
+        if(sub) {
+            dnaArray.splice(randomIndex,1, 'A');
             console.log(dnaArray);
         }
     }
-    else if (del && sub) {
-        noDeleteLoop = noErrors / 2 / noRunsDelete;
-        noSubLoop = noErrors / 2 / noRunsSub;
-
-        for (let i = 0; i < noDeleteLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            dnaArray.splice(randomIndex, noRunsDelete);
-        }
-
-        console.log(dnaArray);
-        for (let i = 0; i < noSubLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            for (let j = 0; j < noRunsSub; j++) {
-                let randomElement = subError[Math.floor(Math.random() * subError.length)];
-                dnaArray.splice(randomIndex, 1, randomElement);
-                randomIndex++;
-            }
-            console.log(dnaArray);
-        }
-    }
-    else if (insert && sub) {
-        noInsertLoop = noErrors / 2 / noRunsDelete;
-        noSubLoop = noErrors / 2 / noRunsSub;
-
-        console.log(dnaArray);
-        for (let i = 0; i < noInsertLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            for (let j = 0; j < noRunsInsert; j++) {
-                let randomElement = subError[Math.floor(Math.random() * subError.length)];
-                dnaArray.splice(randomIndex, 0, randomElement);
-                console.log(dnaArray);
-                randomIndex++;
-            }
-        }
-
-        for (let i = 0; i < noSubLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            for (let j = 0; j < noRunsSub; j++) {
-                let randomElement = subError[Math.floor(Math.random() * subError.length)];
-                dnaArray.splice(randomIndex, 1, randomElement);
-                randomIndex++;
-            }
-            console.log(dnaArray);
-        }
-    }
-    else if (insert && del) {
-        noDeleteLoop = noErrors / 2 / noRunsDelete;
-        noInsertLoop = noErrors / 2 / noRunsInsert;
-        console.log(noDeleteLoop);
-        console.log(noInsertLoop);
-
-        for (let i = 0; i < noDeleteLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            dnaArray.splice(randomIndex, noRunsDelete);
-        }
-
-        for (let i = 0; i < noInsertLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            for (let j = 0; j < noRunsInsert; j++) {
-                let randomElement = subError[Math.floor(Math.random() * subError.length)];
-                dnaArray.splice(randomIndex, 0, randomElement);
-                randomIndex++;
-            }
-        }
-    }
-    else if (del) {
-        noDeleteLoop = noErrors / noRunsDelete;
-        console.log(noDeleteLoop);
-        console.log(noErrors);
-        for (let i = 0; i < noDeleteLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            dnaArray.splice(randomIndex, noRunsDelete);
-        }
-    }
-    else if (sub) {
-        for (let i = 0; i < noSubLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            for (let j = 0; j < noRunsSub; j++) {
-                let randomElement = subError[Math.floor(Math.random() * subError.length)];
-                dnaArray.splice(randomIndex, 1, randomElement);
-                randomIndex++;
-            }
-            console.log(dnaArray);
-        }
-    }
-    else if (insert) {
-        noInsertLoop = noErrors / noRunsInsert;
-        for (let i = 0; i < noInsertLoop; i++) {
-            let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-            for (let j = 0; j < noRunsInsert; j++) {
-                let randomElement = subError[Math.floor(Math.random() * subError.length)];
-                dnaArray.splice(randomIndex, 0, randomElement);
-                randomIndex++;
-            }
-        }
-    }
-
     return dnaArray;
-}
-function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo, len) {
-
-    let temp = [];
-    let missing = [];
-    let majority;
-
-    let getLenClone = errorDNA.slice();
-    let errorCorrectionResult = dnaToBinary(getLenClone);
-    let convertedOutput = removePrimers(errorCorrectionResult);
-    let decoded = decode(convertedOutput);
-    lengthToText(decoded);
-    let extractedLength = getLength(errorCorrectionResult); //call getLength from here
-    console.log(extractedLength);
-    console.log(getLenClone.length);
-
-    let noErrors;
-    noErrors = (extractedLength - getLenClone.length) * 3;
-   
-    while (noErrors > 0) {
-        //Identifies the index of where the error has occured 
-        for (let j = 0; j < errorDNA.length; j++) {
-            if (errorDNA[j] === cloneOne[j] && errorDNA[j] === cloneTwo[j]) {
-                temp.push(errorDNA[j]);
-            }
-            else {
-                missing.push({
-                    original: errorDNA[j],
-                    cloneOne: cloneOne[j],
-                    cloneTwo: cloneTwo[j]
-                })
-                break;
-            }
-        }
-
-        let indexToInsert = temp.length;
-        //correct in missing 
-
-        for (let i = 0; i < missing.length; i++) {
-
-            if (missing[i].original === missing[i].cloneOne) {
-                majority = missing[i].original;
-                cloneTwo.splice(indexToInsert, 0, majority);
-            }
-            else if (missing[i].original === missing[i].cloneTwo) {
-                majority = missing[i].original;
-                cloneOne.splice(indexToInsert, 0, majority);
-            }
-            else if (missing[i].cloneTwo === missing[i].cloneOne) {
-                majority = missing[i].cloneTwo;
-                errorDNA.splice(indexToInsert, 0, majority);
-            }
-            else {
-                majority = "X";
-                cloneOne.splice(indexToInsert, 0, majority);
-            }
-        }
-        missing = [];
-        temp = [];
-        majority = "";
-        noErrors--;
-    }
-    return cloneOne;
-
 }
 
 /**
