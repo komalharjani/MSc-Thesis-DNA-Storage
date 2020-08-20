@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="LoginPage">
+        <div class="header"><br>
+            <h2> DNASS </h2>
+        </div><br>
+
+        <div class="loginContainer">
+            <h3>Welcome </h3>
+        </div><br>
+        <input type="reset" value="Reset" onClick="window.location.reload()"><br><br>
+
+        <div class="loginContainer">
+            <h2>Encoder </h2>
+            <h4>Insert Text Below</h4>
+            <textarea placeholder="Input Text for Conversion" id="inputText" required class="input"></textarea>
+            <h3>Choose Redundant Types for Comparison</h3>
+                <input type="checkbox" id="original">
+                <label for="vehicle1"> Original </label><br>
+                <input type="checkbox" id="comp">
+                <label> Complement </label><br>
+                <input type="checkbox" id="rev">
+                <label> Reverse</label><br>
+                <input type="checkbox" id="revComp">
+                <label> Reverse Complement</label><br>
+                <input type="checkbox" id="fixed">
+                <label> Fixed Length Strings, delimited by "TTTT"</label><br><br>
+                <label>Choose Size of Fixed Length Chunks</label><br><br>
+                <input type="number" value="1"><br><br>
+
+                <h2>Error Simulator</h2>
+                <h4>Choose Error Rate:</h4>
+                <input type="range" min="0" max="10" value="0" step="0.1" class="slider" id="myRange">
+                <p>Value: <span id="demo"></span></p>
+
+                <h4>Choose Errors:</h4>
+                <p></p>
+                    <input type="radio" id="insert">
+                    <label> Insertion </label><br>
+                    <b><label for="noCharsError">Specify how many characters should be inserted at once (this will be counted as a single error):</label><br><br></b>
+                    <input type="number" id="insertChars" min="1" max="25" value="1"><br><br>
+                    <input type="radio" id="delete">
+                    <label> Deletion </label><br>
+                    <b><label for="noCharsError">Specify how many characters should be deleted at once (this will be counted as a single error):</label><br><br></b>
+                    <input type="number" id="deleteChars" min="1" max="25" value="1"><br><br>
+                    <input type="radio" id="sub">
+                    <label> Substitution </label><br>
+                    <b><label for="noCharsError">Specify how many characters should be substituted (this will be counted as a single error):</label><br><br></b>
+                    <input type="number" id="subChars" min="1" max="25" value="1"><br><br>
+
+                    <b><p>Error Dispersion:</p></b>
+                    <input type="radio" id="dispersed">
+                    <label for="dispersed">Dispersed</label><br>
+                    <input type="radio" id="endDNA">
+                    <label for="endDNA">End of String</label><br><br>
+            <button class="button" onclick="onConvert()" id="submit">Convert</button><br>
+            <!--Take Error Rate from On Submit-->
+        </div><br>
+
+        <div class="loginContainer">
+
+            <h2>Results:</h2>
+            <h3 id="errorRateDisplay"></h3>
+            <h3 id="sizeDisplay"></h3>
+
+            <h2>Original Text</h2>
+            <div class="row">
+                <div class="column">
+                    <details>
+                        <summary>Expand</summary>
+                        <p id="originalText"></p>
+                    </details>
+                </div>
+            </div>
+
+            <h2>DNA String</h2>
+            <div class="row">
+                <div class="column">
+                    <details>
+                        <summary>Expand</summary>
+                        <p id="dnaOutput"></p>
+                    </details>
+                </div>
+            </div>
+
+            <h2>After Data Loss</h2>
+            <div class="row">
+                <div class="column">
+                    <details>
+                        <summary>Expand</summary>
+                        <p id="corruptData"></p>
+                    </details>
+                </div>
+            </div>
+
+            <h2 style="color:red">Data after Error Correction: </h2>
+            <h4 id="originalLabel"></h4>
+            <h5 id="simMatchOG"></h5>
+            <div class="row">
+                <div class="column">
+                    <details>
+                        <summary>Expand</summary>
+                        <p id="label"></p>
+                        <p id="OGrecoveredData"></p>
+                    </details>
+                </div>
+            </div>
+            <h2 id="complement"></h2>
+            <h3 id="simMatchComp"></h3>
+            <div class="row">
+                <div class="column">
+                    <details>
+                        <summary>Expand</summary>
+                        <p id="label"></p>
+                        <p id="ComprecoveredData"></p>
+                    </details>
+                </div>
+            </div>
+            <h2 id="reverse"></h2>
+            <h3 id="simMatchRev"></h3>
+            <div class="row">
+                <div class="column">
+                    <details>
+                        <summary>Expand</summary>
+                        <p id="label"></p>
+                        <p id="RevRecoveredData"></p>
+                    </details>
+                </div>
+            </div>
+            <h2 id="reverseComp"></h2>
+            <h3 id="simMatchRevComp"></h3>
+            <div class="row">
+                <div class="column">
+                    <details>
+                        <summary>Expand</summary>
+                        <p id="label"></p>
+                        <p id="RevCompRecoveredData"></p>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="index.js"></script>
+
+</html>
