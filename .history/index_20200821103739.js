@@ -656,8 +656,11 @@ function errorSimulator(dnaString) {
     else if (insert) {
         for (let i = 0; i < noErrors; i++) {
             let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
+            for (let j = 0; j < noRunsInsert; j++) {
                 let randomElement = subError[Math.floor(Math.random() * subError.length)]; //generate random base
                 dnaArray.splice(randomIndex, 0, randomElement);
+                randomIndex++;
+            }
         }
     }
     return dnaArray;
@@ -738,12 +741,6 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
 
 }
 
-/**
- * This is the error correcting function, which compares three copies of arrays and attempts to recover data for fixed length strings
- * @param {*} errorDNA 
- * @param {*} cloneOne 
- * @param {*} cloneTwo 
- */
 function errorCorrectRedundantBlock(errorDNA, cloneOne, cloneTwo) {
 
     let temp = [];
@@ -802,7 +799,7 @@ function errorCorrectRedundantBlock(errorDNA, cloneOne, cloneTwo) {
 }
 
 /**
- * This extracts the length from the back of the string
+ * 
  * @param {*} decodedResult 
  */
 function getLength(decodedResult) {
@@ -817,7 +814,7 @@ function getLength(decodedResult) {
 }
 
 /**
- * This function converts the DNA string back into binary
+ * Convert error corrected string back to binary  
  * @param {*} dnaString 
  */
 function dnaToBinary(dnaString) {
@@ -841,10 +838,6 @@ function dnaToBinary(dnaString) {
 
 }
 
-/**
- * This function formats it into 8s to be able to match ASCII character codes
- * @param {*} convertedOutput 
- */
 function decode(convertedOutput) {
     let conv = convertedOutput.join("");
 
@@ -873,10 +866,6 @@ function binaryToText(str) {
     return binString;
 }
 
-/**
- * Extract Length
- * @param {*} str 
- */
 function lengthToText(str) {
     var binString = '';
     str.split(' ').map(function (bin) {
@@ -885,7 +874,16 @@ function lengthToText(str) {
     return binString;
 }
 
-//Adapted from https://www.jsphp.com/javascript/php/fn/view/similar_text
+function displayResults() {
+    //1. Show All On Page
+    //2. Compare Algorithm
+    //3. Retrieval Rate Algorithm
+    //4. Work Out File Size
+    //5. Running Time Work Out
+    //6. Save as File
+}
+
+//CITE
 function similarText(originalText, recoveredText) {
     if (originalText === null || recoveredText === null || typeof originalText === 'undefined' || typeof recoveredText === 'undefined') {
         return 0;

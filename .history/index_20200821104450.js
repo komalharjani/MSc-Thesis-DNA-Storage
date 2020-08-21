@@ -1,5 +1,6 @@
 
 var slider = document.getElementById("myRange");
+document.getElementById("myDIV").style.display = "none";
 var output = document.getElementById("demo");
 let errorDisplay = document.getElementById("errorRateDisplay");
 let errorRate; //Specified Error Rate by User
@@ -191,6 +192,7 @@ function getOriginalCopies(text) {
     let similarity = similarText(text, fin);
 
     //Display Result
+    document.getElementById("myDIV").style.display = "block";
     let newPara = document.createElement('p');
     let label1 = document.createElement('h2');
     let similarityText = document.createElement('h3');
@@ -656,8 +658,11 @@ function errorSimulator(dnaString) {
     else if (insert) {
         for (let i = 0; i < noErrors; i++) {
             let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
+            for (let j = 0; j < noRunsInsert; j++) {
                 let randomElement = subError[Math.floor(Math.random() * subError.length)]; //generate random base
                 dnaArray.splice(randomIndex, 0, randomElement);
+                randomIndex++;
+            }
         }
     }
     return dnaArray;

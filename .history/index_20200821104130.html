@@ -18,13 +18,7 @@
         <div class="loginContainer">
             <h3>Welcome </h3>
         </div><br>
-        <input id="resetForm" type="reset" value="Reset" onClick="window.location.reload()"><br><br>
-
-        <script>
-            $("#resetForm").click(function () {
-                //$("#inputText") = "";
-            });
-        </script>
+        <input type="reset" value="Reset" onClick="window.location.reload()"><br><br>
 
         <div class="loginContainer">
             <h2 style="color: brown">Encoder </h2>
@@ -51,18 +45,20 @@
 
             <h4>Choose Errors:</h4>
             <p></p>
-            <input type="radio" id="insert" name="action">
+            <form>
+            <input type="radio" id="insert">
             <label> Insertion </label><br>
             <b><label for="noCharsError">Specify how many characters should be inserted at once (this will be counted as
                     a single error):</label><br><br></b>
             <input type="number" id="insertChars" min="1" max="25" value="1"><br><br>
-            <input type="radio" id="delete" name="action">
+            <input type="radio" id="delete">
             <label> Deletion </label><br>
             <b><label for="noCharsError">Specify how many characters should be deleted at once (this will be counted as
                     a single error):</label><br><br></b>
             <input type="number" id="deleteChars" min="1" max="25" value="1"><br><br>
-            <input type="radio" id="sub" name="action">
+            <input type="radio" id="sub">
             <label> Substitution </label><br>
+        </form>
             <b><label for="noCharsError">Specify how many characters should be substituted (this will be counted as a
                     single error):</label><br><br></b>
             <input type="number" id="subChars" min="1" max="25" value="1"><br><br>
@@ -70,9 +66,9 @@
             <b>
                 <p>Error Dispersion:</p>
             </b>
-            <input type="radio" id="dispersed" name="errorDist">
+            <input type="radio" id="dispersed">
             <label for="dispersed">Dispersed</label><br>
-            <input type="radio" id="endDNA" name="errorDist">
+            <input type="radio" id="endDNA">
             <label for="endDNA">End of String</label><br><br>
             <button class="button" onclick="onConvert()" id="submit">Convert</button><br>
             <!--Take Error Rate from On Submit-->
@@ -85,95 +81,98 @@
             <h3 id="sizeDisplay"></h3>
 
             <!-- Hide Div and When onConvert-- SHOW -->
-            <h3 style="color:#03B5AA" id="originalLabel"></h3>
-            <h5 id="simMatchOG"></h5>
-            <div class="row">
-                <div class="column">
-                    <details>
-                        <summary>Encoded DNA</summary>
-                        <p id="OGDNAString"></p>
-                    </details>
-                    <details>
-                        <summary>Corrupt DNA</summary>
-                        <p id="OGCorruptDNA"></p>
-                    </details>
-                    <details>
-                        <summary>Corrupt DNA Decoded</summary>
-                        <p id="OGCorrupt"></p>
-                    </details>
-                    <details>
-                        <summary>Recovered Data</summary>
-                        <p id="OGrecoveredData"></p>
-                    </details>
+            <div id="myDIV">
+                <h3 style="color:#03B5AA" id="originalLabel"></h3>
+                <h5 id="simMatchOG"></h5>
+                <div class="row">
+                    <div class="column">
+                        <details>
+                            <summary>Encoded DNA</summary>
+                            <p id="OGDNAString"></p>
+                        </details>
+                        <details>
+                            <summary>Corrupt DNA</summary>
+                            <p id="OGCorruptDNA"></p>
+                        </details>
+                        <details>
+                            <summary>Corrupt DNA Decoded</summary>
+                            <p id="OGCorrupt"></p>
+                        </details>
+                        <details>
+                            <summary>Recovered Data</summary>
+                            <p id="OGrecoveredData"></p>
+                        </details>
+                    </div>
                 </div>
-            </div>
 
-            <h3 style="color:#03B5AA" id="compLabel"></h3>
-            <h5 id="simMatchComp"></h5>
-            <div class="row">
-                <div class="column">
-                    <details>
-                        <summary>Encoded DNA</summary>
-                        <p id="CompDNAString"></p>
-                    </details>
-                    <details>
-                        <summary>Corrupt DNA</summary>
-                        <p id="CompCorruptDNA"></p>
-                    </details>
-                    <details>
-                        <summary>Corrupt DNA Decoded</summary>
-                        <p id="CompCorrupt"></p>
-                    </details>
-                    <details>
-                        <summary>Recovered Data</summary>
-                        <p id="ComprecoveredData"></p>
-                    </details>
+
+                <h3 style="color:#03B5AA" id="compLabel"></h3>
+                <h5 id="simMatchComp"></h5>
+                <div class="row">
+                    <div class="column">
+                        <details>
+                            <summary>Encoded DNA</summary>
+                            <p id="CompDNAString"></p>
+                        </details>
+                        <details>
+                            <summary>Corrupt DNA</summary>
+                            <p id="CompCorruptDNA"></p>
+                        </details>
+                        <details>
+                            <summary>Corrupt DNA Decoded</summary>
+                            <p id="CompCorrupt"></p>
+                        </details>
+                        <details>
+                            <summary>Recovered Data</summary>
+                            <p id="ComprecoveredData"></p>
+                        </details>
+                    </div>
                 </div>
-            </div>
 
-            <h3 style="color:#03B5AA" id="revLabel"></h3>
-            <h5 id="simMatchRev"></h5>
-            <div class="row">
-                <div class="column">
-                    <details>
-                        <summary>Encoded DNA</summary>
-                        <p id="RevDNAString"></p>
-                    </details>
-                    <details>
-                        <summary>Corrupt DNA</summary>
-                        <p id="RevCorruptDNA"></p>
-                    </details>
-                    <details>
-                        <summary>Corrupt DNA Decoded</summary>
-                        <p id="RevCorrupt"></p>
-                    </details>
-                    <details>
-                        <summary>Recovered Data</summary>
-                        <p id="RevRecoveredData"></p>
-                    </details>
+                <h3 style="color:#03B5AA" id="revLabel"></h3>
+                <h5 id="simMatchRev"></h5>
+                <div class="row">
+                    <div class="column">
+                        <details>
+                            <summary>Encoded DNA</summary>
+                            <p id="RevDNAString"></p>
+                        </details>
+                        <details>
+                            <summary>Corrupt DNA</summary>
+                            <p id="RevCorruptDNA"></p>
+                        </details>
+                        <details>
+                            <summary>Corrupt DNA Decoded</summary>
+                            <p id="RevCorrupt"></p>
+                        </details>
+                        <details>
+                            <summary>Recovered Data</summary>
+                            <p id="RevRecoveredData"></p>
+                        </details>
+                    </div>
                 </div>
-            </div>
 
-            <h3 style="color:#03B5AA" id="revCompLabel"></h3>
-            <h5 id="simMatchRevComp"></h5>
-            <div class="row">
-                <div class="column">
-                    <details>
-                        <summary>Encoded DNA</summary>
-                        <p id="RevCompDNAString"></p>
-                    </details>
-                    <details>
-                        <summary>Corrupt DNA</summary>
-                        <p id="RevCompCorruptDNA"></p>
-                    </details>
-                    <details>
-                        <summary>Corrupt DNA Decoded</summary>
-                        <p id="RevCompCorrupt"></p>
-                    </details>
-                    <details>
-                        <summary>Recovered Data</summary>
-                        <p id="RevCompRecoveredData"></p>
-                    </details>
+                <h3 style="color:#03B5AA" id="revCompLabel"></h3>
+                <h5 id="simMatchRevComp"></h5>
+                <div class="row">
+                    <div class="column">
+                        <details>
+                            <summary>Encoded DNA</summary>
+                            <p id="RevCompDNAString"></p>
+                        </details>
+                        <details>
+                            <summary>Corrupt DNA</summary>
+                            <p id="RevCompCorruptDNA"></p>
+                        </details>
+                        <details>
+                            <summary>Corrupt DNA Decoded</summary>
+                            <p id="RevCompCorrupt"></p>
+                        </details>
+                        <details>
+                            <summary>Recovered Data</summary>
+                            <p id="RevCompRecoveredData"></p>
+                        </details>
+                    </div>
                 </div>
             </div>
 

@@ -656,8 +656,11 @@ function errorSimulator(dnaString) {
     else if (insert) {
         for (let i = 0; i < noErrors; i++) {
             let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
+            for (let j = 0; j < noRunsInsert; j++) {
                 let randomElement = subError[Math.floor(Math.random() * subError.length)]; //generate random base
                 dnaArray.splice(randomIndex, 0, randomElement);
+                randomIndex++;
+            }
         }
     }
     return dnaArray;
@@ -885,7 +888,7 @@ function lengthToText(str) {
     return binString;
 }
 
-//Adapted from https://www.jsphp.com/javascript/php/fn/view/similar_text
+//Adapted from 
 function similarText(originalText, recoveredText) {
     if (originalText === null || recoveredText === null || typeof originalText === 'undefined' || typeof recoveredText === 'undefined') {
         return 0;

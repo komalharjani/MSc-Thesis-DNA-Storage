@@ -18,12 +18,10 @@
         <div class="loginContainer">
             <h3>Welcome </h3>
         </div><br>
-        <input id="resetForm" type="reset" value="Reset" onClick="window.location.reload()"><br><br>
+        <input type="reset" value="Reset" onClick="window.location.reload()"><br><br>
 
         <script>
-            $("#resetForm").click(function () {
-                //$("#inputText") = "";
-            });
+            
         </script>
 
         <div class="loginContainer">
@@ -177,29 +175,29 @@
                 </div>
             </div>
 
-            <h3 style="color:#03B5AA" id="FLLabel"></h3>
-            <h5 id="simMatchFixedLength"></h5>
-            <div class="row">
-                <div class="column">
-                    <details>
-                        <summary>Encoded DNA</summary>
-                        <p id="FLString"></p>
-                    </details>
-                    <details>
-                        <summary>Corrupt DNA</summary>
-                        <p id="FLCorruptDNA"></p>
-                    </details>
-                    <details>
-                        <summary>Corrupt DNA Decoded</summary>
-                        <p id="FLCorruptDNA"></p>
-                    </details>
-                    <details>
-                        <summary>Recovered Data</summary>
-                        <p id="FLRecoveredData"></p>
-                    </details>
-                </div>
+        <h3 style="color:#03B5AA" id="FLLabel"></h3>
+        <h5 id="simMatchFixedLength"></h5>
+        <div class="row">
+            <div class="column">
+                <details>
+                    <summary>Encoded DNA</summary>
+                    <p id="FLString"></p>
+                </details>
+                <details>
+                    <summary>Corrupt DNA</summary>
+                    <p id="FLCorruptDNA"></p>
+                </details>
+                <details>
+                    <summary>Corrupt DNA Decoded</summary>
+                    <p id="FLCorruptDNA"></p>
+                </details>
+                <details>
+                    <summary>Recovered Data</summary>
+                    <p id="FLRecoveredData"></p>
+                </details>
             </div>
         </div>
+    </div>
 
 
 

@@ -11,7 +11,7 @@ slider.oninput = function () {
 let binOutput;
 
 /**
- * This function is called when the form is submitted
+ * Called when convert is started
  */
 function onConvert() {
     //Start Timer for Processing Time
@@ -40,27 +40,27 @@ function onConvert() {
 
     //If fixed-Length blocks are selected
     if (blocks) {
-        getFixedLength(text);
+        generateBlocks(text);
     }
 
     //If original copies are selected
     if (original) {
-        getOriginalCopies(text);
+        generateOriginalCopy(text);
     }
 
     //If complement copies are selected
     if (comp) {
-        getComplementCopies(text);
+        generateComplementCopy(text);
     }
 
     //If reverse copies are selected
     if (rev) {
-        getReverseCopies(text);
+        generateRevCopy(text);
     }
 
     //If reverse complement copies are selected
     if (revComp) {
-        getReverseComplementCopies(text);
+        generateRevCompCopy(text);
     }
     //Stop Timer for Processing Time
     console.timeEnd("Processing Time");
@@ -71,11 +71,8 @@ function onConvert() {
     console.log("Inputted Text:" + text);
 }
 
-/**
- * This function is to generate fixed length copies and run the error simulator on them
- * @param {*} text 
- */
-function getFixedLength(text) {
+
+function generateBlocks(text) {
 
     //Add Length to String
     binOutput = textToBinary(text); //returns length + text
@@ -83,11 +80,11 @@ function getFixedLength(text) {
     //Encode Data to Binary 
     let dnaArray = binaryToDNA(binOutput);
 
-    //STORE IN DNA
+    //STORE IN DNA?
     let lengthOfBlock = document.getElementById("blockSize").value;
 
     //Add Primers in between blocks
-    let addBlock = createFixedLengthBlocks(dnaArray, lengthOfBlock);
+    let addBlock = addBlocks(dnaArray, lengthOfBlock);
     let blockArr = Array.from(addBlock).join("");
 
     //Create Clones
@@ -101,9 +98,11 @@ function getFixedLength(text) {
 
     let errorCorrection = errorCorrectRedundantBlock(corruptOriginal, corruptClone, corruptCloneTwo, lengthOfBlock);
 
+    let lenMinusOne = lengthOfBlock - 1;
+
     //Remove Fixed Length Blocks after 
     for (let i = lengthOfBlock; i < errorCorrection.length; i += lengthOfBlock) {
-        errorCorrection.splice(i, 4);
+        errorCorrection.splice(i, lenMinusOne);
     }
 
     //Convert to Binary
@@ -124,8 +123,8 @@ function getFixedLength(text) {
     newPara.textContent = fin;
 
     let corruptDNA = document.createElement('p');
-    corruptDNA.textContent = corruptClone.join("");
-    document.getElementById("FLCorruptDNA").appendChild(corruptDNA);
+    corruptDNA.textContent = corruptClone;
+    document.getElementById("FLCorruptDNA").appendChild(corruptClone);
 
     similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
     console.log("Fixed Length Strings Similarity Match: " + similarity.toFixed(2) + "%");
@@ -136,7 +135,7 @@ function getFixedLength(text) {
     document.getElementById("simMatchFixedLength").appendChild(similarityText);
 
     //Display Corrupt
-    let corrupt = dnaToBinary(corruptOriginal);
+    let corrupt = dnaToBinary(corruptOriginal)
     decodeCorrupt = decode(corrupt);
     let out = lengthToText(decodeCorrupt);
     let corruptOutput = document.createElement('p');
@@ -147,13 +146,11 @@ function getFixedLength(text) {
     let dnaOutput = document.createElement('p');
     dnaOutput.textContent = blockArr;
     document.getElementById("FLString").appendChild(dnaOutput);
+
+
 }
 
-/**
- * This function is to generate original copies and run the error simulator on them
- * @param {*} text 
- */
-function getOriginalCopies(text) {
+function generateOriginalCopy(text) {
 
     //Add Length to String
     let inputOG = addLength(text);
@@ -161,6 +158,7 @@ function getOriginalCopies(text) {
 
     //Add Encoding Information
     let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
+    //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
 
     //Add Primers - for Blocks
     let addedPrimers = addPrimers(dnaStringOutput);
@@ -174,20 +172,10 @@ function getOriginalCopies(text) {
     let cloneTwoError = errorSimulator(cloneTwo);
     let dnaStringError = errorSimulator(addedPrimers);
 
-    //ERROR CORRECTOR AND DECODER
-    let errorCorrection = errorCorrectRedundant(dnaStringError, cloneError, cloneTwoError);
-
-    //Convert result to Binary
-    let errorCorrectionResult = dnaToBinary(errorCorrection);
-
-    //Remove Primers
-    let convertedOutput = removePrimers(errorCorrectionResult);
-
-    //Decode
-    let decoded = decode(convertedOutput);
+    let decoded = errorCorrect(dnaStringError, cloneError, cloneTwoError);
     let fin = binaryToText(decoded);
 
-    //Calculate Similarity between output and input
+    //Calculate Similarity
     let similarity = similarText(text, fin);
 
     //Display Result
@@ -197,21 +185,20 @@ function getOriginalCopies(text) {
     label1.textContent = "Original Copies: ";
     newPara.textContent = fin;
 
-    //Display Similarity Result
     similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
     console.log("Original Similarity Match: " + similarity.toFixed(2) + "%");
 
-    //Display Corrupt DNA
-    let corruptDNA = document.createElement('p');
-    corruptDNA.textContent = cloneError.join("");
-    document.getElementById("OGCorruptDNA").appendChild(corruptDNA);
 
-    //Display Recovered Data that is decoded
+    let corruptDNA = document.createElement('p');
+    corruptDNA.textContent = cloneError;
+    document.getElementById("OGCorruptDNA").appendChild(cloneError);
+
+    //Display Recovered
     document.getElementById("originalLabel").appendChild(label1);
     document.getElementById("OGrecoveredData").appendChild(newPara);
     document.getElementById("simMatchOG").appendChild(similarityText);
 
-    //Display Corrupt Data before error correction
+    //Display Corrupt
     let corrupt = dnaToBinary(dnaStringError)
     decodeCorrupt = decode(corrupt);
     let out = lengthToText(decodeCorrupt);
@@ -225,19 +212,14 @@ function getOriginalCopies(text) {
     document.getElementById("OGDNAString").appendChild(dnaOutput);
 }
 
-/**
- * This function is to generate complement copies and run the error simulator on them
- * Complements are: A-T, C-G
- * @param {*} text 
- */
-function getComplementCopies(text) {
-
+function generateComplementCopy(text) {
     //Add Length to String
     let inputComp = addLength(text);
     binOutput = textToBinary(inputComp); //returns length + text
 
     //Add Encoding Information
     let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
+    //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
 
     //Add Primers - for Blocks
     let addedPrimers = addPrimers(dnaStringOutput);
@@ -249,26 +231,20 @@ function getComplementCopies(text) {
     let cloneTwoError = errorSimulator(compCloneTwo);
     let dnaStringError = errorSimulator(addedPrimers);
 
-    //ERROR CORRECTOR AND DECODER
-    let errorCorrection = errorCorrectRedundant(dnaStringError, cloneError, cloneTwoError);
+    //DECODE COMPLEMENT
+    let decodeCompOne = getComplement(cloneError);
+    let decodeCompTwo = getComplement(cloneTwoError);
 
-    //Convert result to Binary
-    let errorCorrectionResult = dnaToBinary(errorCorrection);
-
-    //Remove Primers
-    let convertedOutput = removePrimers(errorCorrectionResult);
-
-    //Decode
-    let decoded = decode(convertedOutput);
+    //ERROR CORRECT WITH REV COMPLEMENT
+    let decoded = errorCorrect(dnaStringError, decodeCompOne, decodeCompTwo);
     let fin = binaryToText(decoded);
 
     //Calculate Similarity
     let similarity = similarText(text, fin);
 
-    //Display Corrupt DNA
     let corruptDNA = document.createElement('p');
-    corruptDNA.textContent = errorCorrection.join("");
-    document.getElementById("CompCorruptDNA").appendChild(corruptDNA);
+    corruptDNA.textContent = cloneError;
+    document.getElementById("CompCorruptDNA").appendChild(cloneError);
 
     //Display Result
     let newPara = document.createElement('p');
@@ -277,7 +253,6 @@ function getComplementCopies(text) {
     label1.textContent = "Complement Copies: ";
     newPara.textContent = fin;
 
-    //Display Similarity Match
     similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
     console.log("Complement Similarity Match: " + similarity.toFixed(2) + "%");
 
@@ -300,19 +275,15 @@ function getComplementCopies(text) {
     document.getElementById("CompDNAString").appendChild(dnaOutput);
 }
 
-/**
- * This function is to generate reverse copies and run the error simulator on them
- * Arrays are transposed
- * @param {*} text 
- */
-function getReverseCopies(text) {
-
+function generateRevCopy(text) {
     //Add Length to String
     let input = addLength(text);
     binOutput = textToBinary(input); //returns length + text
 
     //Add Encoding Information
     let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
+    //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
+
 
     //Add Primers - for Blocks
     let addedPrimersOrg = addPrimers(dnaStringOutput);
@@ -328,26 +299,18 @@ function getReverseCopies(text) {
     cloneError = cloneError.reverse();
     cloneTwoError = cloneTwoError.reverse();
 
-    //ERROR CORRECTOR AND DECODER
-    let errorCorrection = errorCorrectRedundant(dnaStringError, cloneError, cloneTwoError);
-
-    //Convert result to Binary
-    let errorCorrectionResult = dnaToBinary(errorCorrection);
-
-    //Remove Primers
-    let convertedOutput = removePrimers(errorCorrectionResult);
-
-    //Decode
-    let decoded = decode(convertedOutput);
+    //ERROR CORRECT WITH REV COMPLEMENT
+    let decoded = errorCorrect(dnaStringError, cloneError, cloneTwoError);
     let fin = binaryToText(decoded);
+    // document.getElementById("recoveredData").innerHTML = "Reversed: " + fin;
 
     //Calculate Similarity
     let similarity = similarText(text, fin);
 
-    //Display Corrupted DNA
+
     let corruptDNA = document.createElement('p');
-    corruptDNA.textContent = errorCorrection.join("");
-    document.getElementById("RevCorruptDNA").appendChild(corruptDNA);
+    corruptDNA.textContent = cloneError;
+    document.getElementById("CompCorruptDNA").appendChild(cloneError);
 
     //Display Result
     let newPara = document.createElement('p');
@@ -356,7 +319,6 @@ function getReverseCopies(text) {
     label1.textContent = "Reverse Copies: ";
     newPara.textContent = fin;
 
-    //Calulate Similarity
     similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
     console.log("Reverse Similarity Match: " + similarity.toFixed(2) + "%");
 
@@ -379,19 +341,15 @@ function getReverseCopies(text) {
     document.getElementById("RevDNAString").appendChild(dnaOutput);
 }
 
-/**
- * This function is to generate reverse complement copies and run the error simulator on them
- * Complements are: A-T, C-G + Reverse
- * @param {*} text 
- */
-function getReverseComplementCopies(text) {
-
+function generateRevCompCopy(text) {
     //Add Length to String
     let input = addLength(text);
     binOutput = textToBinary(input); //returns length + text
 
     //Add Encoding Information
     let dnaStringOutput = binaryToDNA(binOutput); //convert to DNA
+    //document.getElementById("dnaOutput").innerHTML = dnaStringOutput.join("");
+
 
     //Add Primers - for Blocks
     let addedPrimers = addPrimers(dnaStringOutput);
@@ -408,17 +366,8 @@ function getReverseComplementCopies(text) {
     let decodeCompOne = getComplement(cloneError).reverse();
     let decodeCompTwo = getComplement(cloneTwoError).reverse();
 
-    //ERROR CORRECTOR AND DECODER
-    let errorCorrection = errorCorrectRedundant(dnaStringError, cloneError, cloneTwoError);
-
-    //Convert result to Binary
-    let errorCorrectionResult = dnaToBinary(errorCorrection);
-
-    //Remove Primers
-    let convertedOutput = removePrimers(errorCorrectionResult);
-
-    //Decode
-    let decoded = decode(convertedOutput);
+    //ERROR CORRECT WITH REV COMPLEMENT
+    let decoded = errorCorrect(dnaStringError, decodeCompOne, decodeCompTwo);
     let fin = binaryToText(decoded);
 
     //Calculate Similarity
@@ -426,8 +375,8 @@ function getReverseComplementCopies(text) {
 
     //Display Corrupt
     let corruptDNA = document.createElement('p');
-    corruptDNA.textContent = errorCorrection.join("");
-    document.getElementById("RevCompCorruptDNA").appendChild(corruptDNA);
+    corruptDNA.textContent = cloneError;
+    document.getElementById("CompCorruptDNA").appendChild(corruptDNA);
 
     //Display Result
     let newPara = document.createElement('p');
@@ -436,7 +385,6 @@ function getReverseComplementCopies(text) {
     label1.textContent = "Reverse Complement Copies: ";
     newPara.textContent = fin;
 
-    //Calculate Similarity
     similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
     console.log("Reverse Complement Similarity Match: " + similarity.toFixed(2) + "%");
 
@@ -460,12 +408,8 @@ function getReverseComplementCopies(text) {
 
 }
 
-/**
- * This function creates fixed length blocks delimited by TTTTT
- * @param {*} dnaArray 
- * @param {*} n 
- */
-function createFixedLengthBlocks(dnaArray, n) {
+
+function addBlocks(dnaArray, n) {
 
     for (let i = n; i < dnaArray.length; i += (n + 1)) {
         dnaArray.splice(i, 0, "TTTT");
@@ -476,10 +420,22 @@ function createFixedLengthBlocks(dnaArray, n) {
     return block;
 }
 
-/**
- * Function to Convert Images to Binary
- * @param {*} img 
- */
+
+function errorCorrect(dnaStringError, cloneError, cloneTwoError) {
+    //AFTER THIS ERROR CORRECT
+    //ERROR CORRECTOR
+    let errorCorrection = errorCorrectRedundant(dnaStringError, cloneError, cloneTwoError);
+    //Convert result to Binary
+    let errorCorrectionResult = dnaToBinary(errorCorrection);
+    //Remove Primers
+    let convertedOutput = removePrimers(errorCorrectionResult);
+    //Decode
+    let decoded = decode(convertedOutput);
+    return decoded;
+
+}
+
+
 function imageToBinary(img) {
     var binArray = []
     var datEncode = "";
@@ -560,11 +516,8 @@ function addPrimers(dnaArray) {
     return dnaString;
 }
 
-/**
- * Function to remove primers
- * @param {*} convertedOutput 
- */
 function removePrimers(convertedOutput) {
+    //check if all A's and then splice
     convertedOutput.splice(0, 5); //remove primer from beginning
     convertedOutput.splice(-5, 5); //remove primer from end
     return convertedOutput;
@@ -572,8 +525,7 @@ function removePrimers(convertedOutput) {
 }
 
 /**
- * Function to add length
- * @param {*} text 
+ * 
  */
 function addLength(text) {
     let padding = "00000000";
@@ -589,8 +541,7 @@ function addLength(text) {
 
 
 /**
- * This function generates the complement of any given DNA Array
- * @param {*} dnaArray 
+ * Generate Complement of DNA String to be stored
  */
 function getComplement(dnaArray) {
     let complement = [];
@@ -617,7 +568,7 @@ function getComplement(dnaArray) {
  * Attempting to mimic sequencing and synthesis errors in practice 
  * @param {*} dnaString 
  */
-function errorSimulator(dnaString) { 
+function errorSimulator(dnaString) { //does this have to deal with a string?
     let noErrors = Math.round(dnaString.length * errorRate / 1000); //error rate user input
     dnaArray = dnaString.split("");
     let dispersed = document.getElementById("dispersed").checked;
@@ -625,13 +576,13 @@ function errorSimulator(dnaString) {
     let subError = ["A", "G", "T", "C"];
     let min;
     if (dispersed) {
-        min = 0; 
+        min = 0; //change if errors should be concentrated at end
     }
     if (endDNA) {
-        min = dnaString.length - (dnaString.length * 0.1);
+        min = dnaString.length - 200;
     }
 
-    //User Specified Runs to Delete
+    //User Specified
     let noRunsInsert = document.getElementById("insertChars").value;
     let noRunsDelete = document.getElementById("deleteChars").value;
     let noRunsSub = document.getElementById("subChars").value;
@@ -646,28 +597,26 @@ function errorSimulator(dnaString) {
     else if (sub) {
         for (let i = 0; i < noErrors; i++) { //for error rate
             let randomIndex = (Math.floor(Math.random() * dnaArray.length - min + 1) + min) + 1; //generate random index
-            for (let j = 0; j < noRunsSub; j++) {
-                let randomElement = subError[Math.floor(Math.random() * subError.length)]; //generate random base
-                dnaArray.splice(randomIndex, 1, randomElement);
-                randomIndex++;
-            }
+            let randomElement = subError[Math.floor(Math.random() * subError.length)];
+            dnaArray.splice(randomIndex, 1, randomElement);
         }
     }
     else if (insert) {
         for (let i = 0; i < noErrors; i++) {
             let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-                let randomElement = subError[Math.floor(Math.random() * subError.length)]; //generate random base
+            for (let j = 0; j < noRunsSub; j++) {
+                let randomElement = subError[Math.floor(Math.random() * subError.length)];
                 dnaArray.splice(randomIndex, 0, randomElement);
+                randomIndex++;
+            }
         }
     }
     return dnaArray;
 }
 
 /**
- * This is the error correcting function, which compares three copies of arrays and attempts to recover data
- * @param {*} errorDNA 
- * @param {*} cloneOne 
- * @param {*} cloneTwo 
+ * 
+ * @param {*} dnaString 
  */
 function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
 
@@ -675,7 +624,6 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
     let missing = [];
     let majority;
 
-    //Extract Length from end of string
     let getLenClone = errorDNA.slice();
     let errorCorrectionResult = dnaToBinary(getLenClone);
     let convertedOutput = removePrimers(errorCorrectionResult);
@@ -686,7 +634,6 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
     let noErrors;
     noErrors = (extractedLength - getLenClone.length) * 3;
 
-    //While there are still errors
     while (noErrors > 0) {
         //Identifies the index of where the error has occured 
         for (let j = 0; j < errorDNA.length; j++) {
@@ -708,7 +655,6 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
 
         for (let i = 0; i < missing.length; i++) {
 
-            //Identify the one that doesn't match with the other two and change
             if (missing[i].original === missing[i].cloneOne) {
                 majority = missing[i].original;
                 cloneTwo.splice(indexToInsert, 0, majority);
@@ -721,7 +667,6 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
                 majority = missing[i].cloneTwo;
                 errorDNA.splice(indexToInsert, 0, majority);
             }
-            //Else put an X in all arrays == Unrecoverable Data
             else {
                 majority = "X";
                 cloneOne.splice(indexToInsert, 0, majority);
@@ -738,19 +683,13 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
 
 }
 
-/**
- * This is the error correcting function, which compares three copies of arrays and attempts to recover data for fixed length strings
- * @param {*} errorDNA 
- * @param {*} cloneOne 
- * @param {*} cloneTwo 
- */
-function errorCorrectRedundantBlock(errorDNA, cloneOne, cloneTwo) {
+function errorCorrectRedundantBlock(errorDNA, cloneOne, cloneTwo, len) {
 
     let temp = [];
     let missing = [];
     let majority;
 
-    let errorRate = errorDNA.length * 3;
+    errorRate = 10;
 
     while (errorRate > 0) {
         //Identifies the index of where the error has occured 
@@ -785,12 +724,7 @@ function errorCorrectRedundantBlock(errorDNA, cloneOne, cloneTwo) {
             else if (missing[i].cloneTwo === missing[i].cloneOne) {
                 majority = missing[i].cloneTwo;
                 errorDNA.splice(indexToInsert, 0, majority);
-            }
-            else {
-                majority = "X";
-                cloneOne.splice(indexToInsert, 0, majority);
-                errorDNA.splice(indexToInsert, 0, majority);
-                cloneTwo.splice(indexToInsert, 0, majority);
+
             }
         }
         missing = [];
@@ -802,7 +736,7 @@ function errorCorrectRedundantBlock(errorDNA, cloneOne, cloneTwo) {
 }
 
 /**
- * This extracts the length from the back of the string
+ * 
  * @param {*} decodedResult 
  */
 function getLength(decodedResult) {
@@ -817,7 +751,7 @@ function getLength(decodedResult) {
 }
 
 /**
- * This function converts the DNA string back into binary
+ * Convert error corrected string back to binary  
  * @param {*} dnaString 
  */
 function dnaToBinary(dnaString) {
@@ -841,10 +775,6 @@ function dnaToBinary(dnaString) {
 
 }
 
-/**
- * This function formats it into 8s to be able to match ASCII character codes
- * @param {*} convertedOutput 
- */
 function decode(convertedOutput) {
     let conv = convertedOutput.join("");
 
@@ -873,10 +803,6 @@ function binaryToText(str) {
     return binString;
 }
 
-/**
- * Extract Length
- * @param {*} str 
- */
 function lengthToText(str) {
     var binString = '';
     str.split(' ').map(function (bin) {
@@ -885,7 +811,16 @@ function lengthToText(str) {
     return binString;
 }
 
-//Adapted from https://www.jsphp.com/javascript/php/fn/view/similar_text
+function displayResults() {
+    //1. Show All On Page
+    //2. Compare Algorithm
+    //3. Retrieval Rate Algorithm
+    //4. Work Out File Size
+    //5. Running Time Work Out
+    //6. Save as File
+}
+
+//CITE
 function similarText(originalText, recoveredText) {
     if (originalText === null || recoveredText === null || typeof originalText === 'undefined' || typeof recoveredText === 'undefined') {
         return 0;

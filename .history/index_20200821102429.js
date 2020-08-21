@@ -83,7 +83,7 @@ function getFixedLength(text) {
     //Encode Data to Binary 
     let dnaArray = binaryToDNA(binOutput);
 
-    //STORE IN DNA
+    //STORE IN DNA?
     let lengthOfBlock = document.getElementById("blockSize").value;
 
     //Add Primers in between blocks
@@ -124,7 +124,7 @@ function getFixedLength(text) {
     newPara.textContent = fin;
 
     let corruptDNA = document.createElement('p');
-    corruptDNA.textContent = corruptClone.join("");
+    corruptDNA.textContent = corruptClone;
     document.getElementById("FLCorruptDNA").appendChild(corruptDNA);
 
     similarityText.textContent = "Similarity Match: " + similarity.toFixed(2) + "%";
@@ -136,7 +136,7 @@ function getFixedLength(text) {
     document.getElementById("simMatchFixedLength").appendChild(similarityText);
 
     //Display Corrupt
-    let corrupt = dnaToBinary(corruptOriginal);
+    let corrupt = dnaToBinary(corruptOriginal)
     decodeCorrupt = decode(corrupt);
     let out = lengthToText(decodeCorrupt);
     let corruptOutput = document.createElement('p');
@@ -147,6 +147,8 @@ function getFixedLength(text) {
     let dnaOutput = document.createElement('p');
     dnaOutput.textContent = blockArr;
     document.getElementById("FLString").appendChild(dnaOutput);
+
+
 }
 
 /**
@@ -565,6 +567,7 @@ function addPrimers(dnaArray) {
  * @param {*} convertedOutput 
  */
 function removePrimers(convertedOutput) {
+    //check if all A's and then splice
     convertedOutput.splice(0, 5); //remove primer from beginning
     convertedOutput.splice(-5, 5); //remove primer from end
     return convertedOutput;
@@ -589,8 +592,7 @@ function addLength(text) {
 
 
 /**
- * This function generates the complement of any given DNA Array
- * @param {*} dnaArray 
+ * Generate Complement of DNA String to be stored
  */
 function getComplement(dnaArray) {
     let complement = [];
@@ -617,7 +619,7 @@ function getComplement(dnaArray) {
  * Attempting to mimic sequencing and synthesis errors in practice 
  * @param {*} dnaString 
  */
-function errorSimulator(dnaString) { 
+function errorSimulator(dnaString) { //does this have to deal with a string?
     let noErrors = Math.round(dnaString.length * errorRate / 1000); //error rate user input
     dnaArray = dnaString.split("");
     let dispersed = document.getElementById("dispersed").checked;
@@ -625,13 +627,13 @@ function errorSimulator(dnaString) {
     let subError = ["A", "G", "T", "C"];
     let min;
     if (dispersed) {
-        min = 0; 
+        min = 0; //change if errors should be concentrated at end
     }
     if (endDNA) {
-        min = dnaString.length - (dnaString.length * 0.1);
+        min = dnaString.length - 200;
     }
 
-    //User Specified Runs to Delete
+    //User Specified
     let noRunsInsert = document.getElementById("insertChars").value;
     let noRunsDelete = document.getElementById("deleteChars").value;
     let noRunsSub = document.getElementById("subChars").value;
@@ -647,7 +649,7 @@ function errorSimulator(dnaString) {
         for (let i = 0; i < noErrors; i++) { //for error rate
             let randomIndex = (Math.floor(Math.random() * dnaArray.length - min + 1) + min) + 1; //generate random index
             for (let j = 0; j < noRunsSub; j++) {
-                let randomElement = subError[Math.floor(Math.random() * subError.length)]; //generate random base
+                let randomElement = subError[Math.floor(Math.random() * subError.length)];
                 dnaArray.splice(randomIndex, 1, randomElement);
                 randomIndex++;
             }
@@ -656,18 +658,19 @@ function errorSimulator(dnaString) {
     else if (insert) {
         for (let i = 0; i < noErrors; i++) {
             let randomIndex = Math.floor(Math.random() * (dnaArray.length - min + 1) + min); //generate random index
-                let randomElement = subError[Math.floor(Math.random() * subError.length)]; //generate random base
+            for (let j = 0; j < noRunsInsert; j++) {
+                let randomElement = subError[Math.floor(Math.random() * subError.length)];
                 dnaArray.splice(randomIndex, 0, randomElement);
+                randomIndex++;
+            }
         }
     }
     return dnaArray;
 }
 
 /**
- * This is the error correcting function, which compares three copies of arrays and attempts to recover data
- * @param {*} errorDNA 
- * @param {*} cloneOne 
- * @param {*} cloneTwo 
+ * 
+ * @param {*} dnaString 
  */
 function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
 
@@ -675,7 +678,6 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
     let missing = [];
     let majority;
 
-    //Extract Length from end of string
     let getLenClone = errorDNA.slice();
     let errorCorrectionResult = dnaToBinary(getLenClone);
     let convertedOutput = removePrimers(errorCorrectionResult);
@@ -686,7 +688,6 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
     let noErrors;
     noErrors = (extractedLength - getLenClone.length) * 3;
 
-    //While there are still errors
     while (noErrors > 0) {
         //Identifies the index of where the error has occured 
         for (let j = 0; j < errorDNA.length; j++) {
@@ -708,7 +709,6 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
 
         for (let i = 0; i < missing.length; i++) {
 
-            //Identify the one that doesn't match with the other two and change
             if (missing[i].original === missing[i].cloneOne) {
                 majority = missing[i].original;
                 cloneTwo.splice(indexToInsert, 0, majority);
@@ -721,7 +721,6 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
                 majority = missing[i].cloneTwo;
                 errorDNA.splice(indexToInsert, 0, majority);
             }
-            //Else put an X in all arrays == Unrecoverable Data
             else {
                 majority = "X";
                 cloneOne.splice(indexToInsert, 0, majority);
@@ -738,19 +737,13 @@ function errorCorrectRedundant(errorDNA, cloneOne, cloneTwo) {
 
 }
 
-/**
- * This is the error correcting function, which compares three copies of arrays and attempts to recover data for fixed length strings
- * @param {*} errorDNA 
- * @param {*} cloneOne 
- * @param {*} cloneTwo 
- */
-function errorCorrectRedundantBlock(errorDNA, cloneOne, cloneTwo) {
+function errorCorrectRedundantBlock(errorDNA, cloneOne, cloneTwo, len) {
 
     let temp = [];
     let missing = [];
     let majority;
 
-    let errorRate = errorDNA.length * 3;
+    errorRate = 10;
 
     while (errorRate > 0) {
         //Identifies the index of where the error has occured 
@@ -785,12 +778,7 @@ function errorCorrectRedundantBlock(errorDNA, cloneOne, cloneTwo) {
             else if (missing[i].cloneTwo === missing[i].cloneOne) {
                 majority = missing[i].cloneTwo;
                 errorDNA.splice(indexToInsert, 0, majority);
-            }
-            else {
-                majority = "X";
-                cloneOne.splice(indexToInsert, 0, majority);
-                errorDNA.splice(indexToInsert, 0, majority);
-                cloneTwo.splice(indexToInsert, 0, majority);
+
             }
         }
         missing = [];
@@ -802,7 +790,7 @@ function errorCorrectRedundantBlock(errorDNA, cloneOne, cloneTwo) {
 }
 
 /**
- * This extracts the length from the back of the string
+ * 
  * @param {*} decodedResult 
  */
 function getLength(decodedResult) {
@@ -817,7 +805,7 @@ function getLength(decodedResult) {
 }
 
 /**
- * This function converts the DNA string back into binary
+ * Convert error corrected string back to binary  
  * @param {*} dnaString 
  */
 function dnaToBinary(dnaString) {
@@ -841,10 +829,6 @@ function dnaToBinary(dnaString) {
 
 }
 
-/**
- * This function formats it into 8s to be able to match ASCII character codes
- * @param {*} convertedOutput 
- */
 function decode(convertedOutput) {
     let conv = convertedOutput.join("");
 
@@ -873,10 +857,6 @@ function binaryToText(str) {
     return binString;
 }
 
-/**
- * Extract Length
- * @param {*} str 
- */
 function lengthToText(str) {
     var binString = '';
     str.split(' ').map(function (bin) {
@@ -885,7 +865,16 @@ function lengthToText(str) {
     return binString;
 }
 
-//Adapted from https://www.jsphp.com/javascript/php/fn/view/similar_text
+function displayResults() {
+    //1. Show All On Page
+    //2. Compare Algorithm
+    //3. Retrieval Rate Algorithm
+    //4. Work Out File Size
+    //5. Running Time Work Out
+    //6. Save as File
+}
+
+//CITE
 function similarText(originalText, recoveredText) {
     if (originalText === null || recoveredText === null || typeof originalText === 'undefined' || typeof recoveredText === 'undefined') {
         return 0;
