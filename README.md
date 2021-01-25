@@ -20,5 +20,6 @@ This is a one-off practical for a University of St Andrews CS MSc program. Contr
 190021896
 
 ## Acknowledgments
-Ishebl Duncan for guidance and support
+Ishbel Duncan for guidance and support
+
 Contributors to stackoverflow for many javascript related answers
